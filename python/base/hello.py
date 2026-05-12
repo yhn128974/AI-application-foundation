@@ -140,6 +140,7 @@ hello world!
 """
 import random
 from operator import truediv
+from unittest import case
 
 from prompt_toolkit.contrib.telnet import TelnetServer
 from scipy.cluster.hierarchy import average
@@ -502,4 +503,94 @@ random_number = random.randint(1, 100)
 # all_list = [*newSet, *french_set, *basketball_set, *art_set]
 # for s in all_list:
 
-#     print(f"{s}选修了{all_list.count(s)}")
+# print(f"{s}选修了{all_list.count(s)}")
+
+
+# 字典
+# core = {
+#     "韩立": 100,
+#     "王琳": 500,
+#     "李纨": 200,
+#     "紫灵": 534,
+#     (1, 2): 700,
+# }
+# print(core.get((1, 2)))
+#
+# core["王琳"] = 600
+# print(core.get("王琳"))
+#
+# #
+# core["longyou"] = 999
+# print(core.get("longyou"))
+#
+# # 删除字典中的元素,并获取删除的值
+# score = core.pop("longyou")
+# print(score)
+# # 命令删除
+# # del core["longyou"]
+#
+# #便利输出字典
+# for k, v in core.items():
+#     print(k, v)
+#
+shopping_car = {
+"矿泉水":{
+    "price":100,
+    "number":10
+}
+}
+
+menu="""
+###########################
+#       1.添加商品          #
+#       2.修改商品          #
+#       3.查看商品详情       #
+#       4.删除商品          #
+#       5.退出购物车         #
+############################
+"""
+
+# print("欢迎使用购物车管理系统")
+# print(menu)
+#
+# choice = input("请选择要执行的操作（1-5）")
+# match choice:
+#     case "1":
+#         name = input("请输入商品名称: ")
+#         if name in shopping_car:
+#             print("改商品已经存在")
+#         else:
+#             current_price = input("请输入商品价格")
+#             current_number = input("请输入商品数量")
+#             shopping_car[name] = {
+#                 "price": current_price,
+#                 "number": current_number,
+#             }
+#             print("商品已添加")
+#     case "2":
+#         name = input("请输入要修改的商品名称")
+#         if name in shopping_car:
+#             current_price = input("请输入商品价格")
+#             current_number = input("请输入商品数量")
+#             shopping_car[name] = {
+#                 "price": current_price,
+#                 "number": current_number,
+#             }
+#         else:
+#             print("抱歉该商品不在购物车中")
+#     case "3":
+#         name = input("请输入要修改的商品名称")
+#         if name in shopping_car:
+#           print(shopping_car[name]["number"])
+#           print(shopping_car[name]["price"])
+#         else:
+#             print("抱歉该商品不在购物车中")
+#     case "4":
+#         name = input("请输入要删除的商品名称")
+#         if name in shopping_car:
+#             del shopping_car[name]
+#             print("已删除该商品")
+#     case _:
+#         print("退出完毕！")
+
+
