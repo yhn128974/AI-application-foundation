@@ -24,6 +24,11 @@ class Car:
 
     # 魔法方法
     def __str__(self):
+        """
+        :return: string of car info
+        :param self:
+        :return:
+        """
         return f"{self.brand} {self.name} {self.price}"
 
     def __eq__(self, other):
