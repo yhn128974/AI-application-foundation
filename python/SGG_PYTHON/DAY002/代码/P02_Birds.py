@@ -68,6 +68,7 @@ class Obstacle:
         bird.use_skill()
 
         # 判断当前发起攻击的鸟是哪类
+        # isinstance（self,class）判断当前对象是否是对应的类型
         if isinstance(bird, RedBirds):
             damage = 50
         elif isinstance(bird, YellowBirds):
