@@ -5,6 +5,7 @@ def outer():
         print(b)
     return inner
 
+
 ff=outer()
 print(ff)
 # 得到函数返回元组
