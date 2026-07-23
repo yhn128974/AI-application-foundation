@@ -14,6 +14,7 @@ if __name__=="__main__":
 
     p1.start()
     p2.start()
+    
 # 阻塞主进程，等待工作进程结束
     p1.join()
     p2.join()
