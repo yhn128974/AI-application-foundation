@@ -3,7 +3,7 @@ import re
 
 phone_pattern = re.compile(r"^(?:\+?86)?1[3-9]\d{9}$")
 
-email_pattern = re.compile(r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")
+email_pattern = re.compile(r"^[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9-]+\.)+[A-Za-z]{2,}$")
 
 
 def is_china_mobile_phone(phone_number):
@@ -55,18 +55,15 @@ test_chinese_strings = [
     "中文标点，。",
 ]
 
-for number in test_numbers:
-    result = "匹配" if is_china_mobile_phone(number) else "不匹配"
-    print(f"{number},{result}")
+if __name__ == '__main__':
+    for number in test_numbers:
+        result = "匹配" if is_china_mobile_phone(number) else "不匹配"
+        print(f"{number},{result}")
 
+    for email in test_emails:
+        result="匹配" if is_email(email) else "不匹配"
+        print(f"{email},{result}")
 
-
-for email in test_emails:
-    result="匹配" if is_email(email) else "不匹配"
-
-    print(f"{email},{result}")
-
-    
-for text in test_chinese_strings:
-    result = "包含中文" if contains_chinese(text) else "不包含中文"
-    print(f"'{text}': {result}")
+    for text in test_chinese_strings:
+        result = "包含中文" if contains_chinese(text) else "不包含中文"
+        print(f"'{text}': {result}")
