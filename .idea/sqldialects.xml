@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/python/PyMysql/创建数据库.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/python/mysql/day01/demo01.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/python/mysql/day01/demo02.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/python/mysql/day01/demo03.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/python/mysql/day01/demo04.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/python/mysql/day01/demo05.sql" dialect="MySQL" />
+  </component>
+</project>
