@@ -1,0 +1,7 @@
+# 现代可视化示例依赖（按需安装）
+plotly>=5.18
+pandas>=2.0
+numpy>=1.24
+pyecharts>=2.0
+altair>=5.2
+vega_datasets>=0.9
