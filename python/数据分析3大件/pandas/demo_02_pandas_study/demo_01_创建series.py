@@ -15,9 +15,9 @@ import pandas as pd
 import numpy as np
 
 # 2.创建对象 从列表
-s1 = pd.Series([1, 3, 5, np.nan, 6, 8])
+s1=pd.Series([1,2,3,4,5,np.nan,6,7,8,9])
 print("从列表创建的Series：\n",s1)
-print("数据类型：",type(s1))
+
 
 # 从字典
 s2 = pd.Series({"a":1,"b":2,"c":3,"d":4,"e":5})
@@ -28,5 +28,9 @@ s3 = pd.Series([10,20,30],index=['x','y','z'])
 print("指定索引的Series：\n",s3)
 
 #Series操作
-print("值：",s3.values)
-print("索引：",s3.index)
+print("索引：",s1.index)
+print("值：",s1.values)
+
+
+
+

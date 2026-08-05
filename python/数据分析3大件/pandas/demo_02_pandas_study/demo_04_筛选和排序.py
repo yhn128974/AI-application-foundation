@@ -7,6 +7,8 @@
 # 【emp.txt】短横线 - 分隔，第一行是表头 name-age-dept-sal
 # =============================================================================
 
+import os
+
 import pandas as pd
 
 
@@ -20,10 +22,13 @@ def show(title, result, principle="", keywords=""):
     print("  ■ 结果:")
     print(result)
 
-
 # sep='-'：字段用短横线分隔（不是逗号 CSV）
 # 第一行 name-age-dept-sal 会被当作列名（默认 header=0）
-df = pd.read_csv('emp.txt', sep='-')
+base_dir = os.path.dirname(__file__)
+path = os.path.join(base_dir, 'emp.txt')
+# 
+     
+df = pd.read_csv(path, sep='-')
 show("读入 emp 表", df,
      principle="分隔符必须与文件一致，否则整行会挤在一列",
      keywords="read_csv；sep='-'")
@@ -34,7 +39,7 @@ show("读入 emp 表", df,
 
 # [['name','sal']]：外层 [] 是 Pandas 取子集；内层 [] 是 Python 列表
 # 原理：告诉 Pandas「我要这两列」，返回仍是 DataFrame（二维）
-show("df[['name','sal']]", df[['name', 'sal']],
+show("df[['name','sal']]", df[['name', 'sal','dept']],
      principle="先选列再分析，减少无关字段干扰",
      keywords="双括号 + 列名列表")
 
@@ -44,7 +49,7 @@ show("df[['name','sal']]", df[['name', 'sal']],
 
 # df['sal'] > 5000：生成与行数相同的 True/False
 # df[ ... ]：只保留 True 的行
-show("df[df['sal'] > 5000]", df[df['sal'] > 5000],
+show("df[df['sal'] > 5000]", df[df['sal']>5000],
      principle="内层条件、外层筛行；等价 SQL: WHERE sal > 5000",
      keywords="df[df['列'] 比较符 值]")
 
@@ -79,3 +84,9 @@ show("sort_values 降序", df.sort_values('sal', ascending=False),
 show("sort_values 升序", df.sort_values('age', ascending=True),
      principle="ascending=True 从小到大",
      keywords="ascending=True升序")
+
+# 
+show("sort_values 多列排序", df.sort_values(['age', 'sal'], ascending=[True, False]),
+     principle="先按年龄升序，再按工资降序",   keywords="by=[列名列表], ascending=[True/False列表]")
+
+     

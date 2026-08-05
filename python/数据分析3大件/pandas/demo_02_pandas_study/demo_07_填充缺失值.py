@@ -11,9 +11,15 @@
 # 【原则】先统计占比 → 再决定删还是填，不要盲目 dropna
 # =============================================================================
 
+
+from pathlib import Path
+
 import pandas as pd
 import numpy as np  # NaN 在底层来自 numpy.nan
 
+# 获取当前文件发的父目录
+base_dir = Path(__file__).resolve().parent
+emp_path = base_dir / '清洗数据.csv'
 
 def show(title, result, principle="", keywords=""):
     print("\n" + "=" * 60)
@@ -26,7 +32,7 @@ def show(title, result, principle="", keywords=""):
     print(result)
 
 
-df = pd.read_csv('清洗数据.csv', sep=',')
+df = pd.read_csv(emp_path, sep=',')
 show("原始表（含缺失）", df,
      principle="逗号分隔；空位读成 NaN",
      keywords="read_csv；sep=','")
@@ -98,3 +104,4 @@ show("df.bfill()", df.bfill(),
 
 print("\n" + "=" * 60)
 print("【小结】isnull查 → dropna删 / fillna填；改的是副本，原表 df 仍在内存里未变")
+

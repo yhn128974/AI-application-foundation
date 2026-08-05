@@ -37,6 +37,7 @@ fig = px.scatter_3d(
     title="Plotly 3D 散点（悬停 / 旋转 / 缩放）",
     labels={"score": "得分"},
 )
+
 fig.update_layout(
     paper_bgcolor="#0e1117",
     scene=dict(

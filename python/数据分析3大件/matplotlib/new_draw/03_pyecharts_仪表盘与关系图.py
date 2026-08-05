@@ -13,7 +13,7 @@ gauge = (
     Gauge(init_opts=opts.InitOpts(theme=ThemeType.DARK, width="900px", height="500px"))
     .add(
         "完成率",
-        [("项目进度", 78.5)],
+        [("项目进度", 78.5)],   
         axisline_opts=opts.AxisLineOpts(
             linestyle_opts=opts.LineStyleOpts(
                 color=[(0.3, "#67e0e3"), (0.7, "#37a2da"), (1, "#fd666d")],

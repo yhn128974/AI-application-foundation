@@ -22,6 +22,7 @@
 # =============================================================================
 
 import pandas as pd
+from pathlib import Path
 
 
 def show(title, result, principle="", process="", keywords=""):
@@ -51,7 +52,9 @@ def show(title, result, principle="", process="", keywords=""):
 # pd.read_csv：读取分隔文本为 DataFrame
 # 'emp.txt'：相对路径，请在 03_pandas 目录下运行
 # sep='-'：按短横线切分；第一行 name-age-dept-sal 自动作为列名（默认 header=0）
-df = pd.read_csv('emp.txt', sep='-')
+base_dir = Path(__file__).resolve().parent
+emp_path = base_dir / 'emp.txt'
+df = pd.read_csv(emp_path, sep='-')
 
 show(
     "步骤0：pd.read_csv('emp.txt', sep='-')",
@@ -121,7 +124,7 @@ show(
 # 等价 SQL：SELECT * FROM emp WHERE sal = (SELECT MAX(sal) FROM emp);
 show(
     "df[df['sal'] == df['sal'].max()]  最高薪员工",
-    df[df['sal'] == df['sal'].max()],
+    df[ df['sal'] == df['sal'].max()],
     principle="聚合结果是一个数，可以和整列逐行比较，实现「找极值对应记录」",
     process="① 算 max → ② 列与标量 == → ③ 布尔索引筛行",
     keywords="df[条件]；== 逐元素比较"

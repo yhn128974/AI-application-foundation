@@ -1,9 +1,13 @@
 import pandas as pd  # 导入Pandas库，用于数据分析和处理
+from pathlib import Path
 
 # ==================== 数据读取 ====================
 # pd.read_csv()：从CSV文件读取数据并返回DataFrame对象
 # "sales_data.csv"：文件路径，假设包含'产品'、'地区'、'销售额'等列
-df = pd.read_csv("sales_data.csv")
+base_dir = Path(__file__).resolve().parent
+sales_data_path = base_dir / 'sales_data.csv'
+
+df = pd.read_csv(sales_data_path)
 
 # print()：在控制台输出内容
 # df：DataFrame对象，展示表格数据（行索引、列名、数据值）

@@ -10,6 +10,7 @@
 # =============================================================================
 
 import pandas as pd
+from pathlib import Path
 
 
 def show(title, result, principle="", keywords=""):
@@ -22,7 +23,8 @@ def show(title, result, principle="", keywords=""):
     print("  ■ 结果:")
     print(result)
 
-
+base_dir = Path(__file__).resolve().parent
+students_path = base_dir / 'students.txt'
 # =============================================================================
 # pd.read_csv：把磁盘上的分隔文本读成 DataFrame（最常用的读表方式）
 # =============================================================================
@@ -30,8 +32,10 @@ def show(title, result, principle="", keywords=""):
 # 第一个参数：文件路径字符串
 # sep=','：separator 分隔符，字段之间用逗号切开（CSV = Comma Separated Values）
 # names=[...]：该文件没有表头行时，手动指定 4 个列名；有表头时一般用 header=0 读第一行
+
+# 
 df = pd.read_csv(
-    'students.txt',
+    students_path,
     sep=',',
     names=['name', 'age', 'sex', 'score']
 )
@@ -135,6 +139,7 @@ print("  ■ 参数说明: index=False → 不保存行索引")
 # 示例2：保存筛选后的数据（分数为98的学生）
 df_filtered = df[df['score'] == 98]  # 先筛选出需要的数据
 df_filtered.to_csv('students_score_98.csv', index=False, encoding='utf-8-sig')
+# 
 print("  ✓ 已保存分数为98的学生到: students_score_98.csv")
 print("  ■ 参数说明: encoding='utf-8-sig' → 解决Excel打开中文乱码问题")
 

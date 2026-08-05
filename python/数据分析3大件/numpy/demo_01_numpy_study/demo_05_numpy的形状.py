@@ -108,7 +108,7 @@ print()
 a7 = np.resize(arr1, (2, 3))  # 需要6个元素，原数组有12个，只取前6个
 print("resize 调整大小 (2行×3列，共6个元素，截取前6个):")
 print(a7)
-print(f"形状: {a7.shape}, 元素总数: {a7.size}")
+print(f"形状: {a7.shape}, 元素总数: {a7.size}")     
 
 print()
 
