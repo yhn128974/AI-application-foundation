@@ -1,0 +1,1316 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="3.3%20%E5%BD%95%E9%9F%B3%E5%88%86%E6%9E%90%E6%A8%A1%E5%9D%97.html">
+      
+      
+        <link rel="next" href="3.5%20%E6%99%BA%E8%83%BD%E4%BD%93%E7%BC%96%E6%8E%92.html">
+      
+      
+      <link rel="icon" href="../img/AI.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>3.4 面试题生成模块 - 智能体开发（Coze）V7.5</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#34" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../index.html" title="智能体开发（Coze）V7.5" class="md-header__button md-logo" aria-label="智能体开发（Coze）V7.5" data-md-component="logo">
+      
+  <img src="../img/AI.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            智能体开发（Coze）V7.5
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.4 面试题生成模块
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="智能体开发（Coze）V7.5" class="md-nav__button md-logo" aria-label="智能体开发（Coze）V7.5" data-md-component="logo">
+      
+  <img src="../img/AI.jpg" alt="logo">
+
+    </a>
+    智能体开发（Coze）V7.5
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    课程首页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ① Coze平台介绍及入门
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ① Coze平台介绍及入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A0%20Coze%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%85%A5%E9%97%A8/1.1%20Coze%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1 Coze平台介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A0%20Coze%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%85%A5%E9%97%A8/1.2%20Coze%E5%B9%B3%E5%8F%B0%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2 Coze平台入门实战
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ② Coze平台进阶使用
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ② Coze平台进阶使用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A1%20Coze%E5%B9%B3%E5%8F%B0%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/2.1%20%E7%A7%81%E6%9C%89%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1 私有数据访问
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A1%20Coze%E5%B9%B3%E5%8F%B0%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/2.2%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%92%8C%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2 多模态和循环结构
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A1%20Coze%E5%B9%B3%E5%8F%B0%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/2.3%20Coze%20API%E8%B0%83%E7%94%A8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3 Coze API调用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ③ Coze平台项目案例 AI面试助手
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ③ Coze平台项目案例 AI面试助手
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.1%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 项目介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.2%20%E7%AE%80%E5%8E%86%E4%BF%AE%E6%94%B9%E6%A8%A1%E5%9D%97.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 简历评估模块
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.3%20%E5%BD%95%E9%9F%B3%E5%88%86%E6%9E%90%E6%A8%A1%E5%9D%97.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 录音分析模块
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    3.4 面试题生成模块
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="3.4%20%E9%9D%A2%E8%AF%95%E9%A2%98%E7%94%9F%E6%88%90%E6%A8%A1%E5%9D%97.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4 面试题生成模块
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、工作流介绍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、实现数据预处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、实现数据预处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 解析简历文件中的技能和项目部分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 获取最近的真实面试题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、实现面试题生成
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、实现面试题生成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 基于技能点生成面试题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 基于项目经验生成面试题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、实现面试题整合
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、工作流调试
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.5%20%E6%99%BA%E8%83%BD%E4%BD%93%E7%BC%96%E6%8E%92.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5 智能体编排
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.6%20%E6%89%B9%E5%A4%84%E7%90%86%E6%A8%A1%E5%9D%97.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.6 批处理模块
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ④ 拓展：Coze平台实战案例
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            ④ 拓展：Coze平台实战案例
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.1%20%E6%A1%88%E4%BE%8B%E8%AF%B4%E6%98%8E.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 案例说明
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.2%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E5%8A%A9%E6%89%8B.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 智能问答小助手
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.3%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%97%85%E6%B8%B8%E8%A7%84%E5%88%92%E5%B0%8F%E7%B2%BE%E7%81%B5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 旅游规划小精灵
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.4%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%99%BA%E8%83%BD%E9%9D%A2%E8%AF%95%E5%AE%98.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4 智能面试官
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.5%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%99%BA%E8%83%BD%E5%8A%A9%E6%95%99.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.5 AI智慧助教
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.6%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%8F%A3%E8%AF%AD%E7%BB%83%E4%B9%A0%E4%B8%93%E5%AE%B6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.6 英语口语陪练专家
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、工作流介绍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、实现数据预处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、实现数据预处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 解析简历文件中的技能和项目部分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 获取最近的真实面试题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、实现面试题生成
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、实现面试题生成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 基于技能点生成面试题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 基于项目经验生成面试题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、实现面试题整合
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、工作流调试
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="34">3.4 面试题生成模块<a class="headerlink" href="#34" title="Permanent link">&para;</a></h1>
+<h2 id="_1">一、工作流介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>功能：接收用户的简历，结合面试题宝典的数据和录入到面试题记录中的面试题数据，生成面试题</p>
+<p><img src="../img/image-20251105011619533.png" alt="image-20251105011619533" style="zoom:67%;" /></p>
+<p>具体步骤如下：</p>
+<ul>
+<li>输入：简历文件</li>
+<li>执行流程：</li>
+<li>数据预处理：准备最近100个面试问题， 解析简历文件中的技能和项目部分的内容</li>
+<li>面试题生成：基于技能点生成技术类问题， 基于项目部分的内容生成项目类问题</li>
+<li>
+<p>面试题整合：把最近的100道面试题</p>
+</li>
+<li>
+<p>输出：面试题集合</p>
+</li>
+</ul>
+<h2 id="_2">二、实现数据预处理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>数据预处理部分如下图，主要是两部分：</p>
+<ul>
+<li>解析简历文件中的技能和项目部分的内容：从简历中提取出来对应的部分的文字，并进行分块</li>
+<li>准备最近100个面试问题：从数据库中查询最近100道面试题</li>
+</ul>
+<p><img src="../img/image-20251105132628067.png" alt="image-20251105132628067" style="zoom:67%;" /></p>
+<h3 id="1">1 解析简历文件中的技能和项目部分<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>有些细心的同学或许已经注意到，这里的简历文字提取和内容分块部分的内容和“简历评估模块”基本类似，所以我们可以直接复用这一部分的内容。coze的工作流的画布上，我们通过鼠标框选 + 复制的， 再在新的画布中进行粘贴，即可复用。</p>
+<p>粘贴过来以后，我们需要做的就是基于业务再进行修改：</p>
+<ul>
+<li>简历文字提取部分：这部分完全一致，目标都是要把pdf和doc的文档转化为文本格式，不需要修改</li>
+<li>内容分块部分：我们生成面试题的时候只需要依赖技能和项目两个部分即可，所以在原版内容分块结果的基础上要做一次减法，只保留技能和项目部分即可。同时对于技能部分，要拆分成更细的技术点，以便更好的生成对应的面试题。</li>
+</ul>
+<p><img src="../img/image-20251104204919074.png" alt="image-20251104204919074" style="zoom:67%;" /></p>
+<p>简历问题提取部分略， 内容分块部分我们这里使用豆包1.6深度思考模型，同时修改提示词，如下：</p>
+<p><img src="../img/image-20251105140614913.png" alt="image-20251105140614913" style="zoom:67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">你是一个大模型和算法工程师简历内容提取助手，能够根据简历中的内容提取出来对应的实体。你将接受简历内容作为输入，并按照下列要求进行拆分，并输出为json格式</span><span class="o">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">个人技能：字段名</span><span class="w"> </span><span class="s">{{skill}}, 个人掌握的IT相关的技能，按行按内容拆分，拆分成尽可能多的单独的技术点，并最终以字符串数组返回</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="na">项目经验：字段名</span><span class="w"> </span><span class="s">{{project_exp}} , 包含简历上所有项目相关的、以及在简历内容的第几部分，每个项目作为数组中的一个元素返回，最后返回一个字符串数组，数组长度和项目数一致</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="na">注意，以上的要求需要严格遵循，除了上下文以外，其他的内容不要省略和总结，直接拆出来原文即可，不要出现错误的划分</span>
+</code></pre></div>
+<p>这里需要注意，拆分技能点的目的是为了让生成问题更加精准。 一般按照大部分简历的编写方式，一行技能介绍里面往往包含多个技能点：</p>
+<ul>
+<li>比如：“熟悉深度学习原理，对RNN、LSTM、Transformer的原理有深入的研究，熟练使用pytorch搭建神经网络”。 这句话中涉及到多个技术点， 如果我们直接基于这句话生成一个面试题，是比较困难的。所以这里我们要“换位思考”，站在业务的角度，也就是简历的使用者（面试官）的角度去思考，怎么使用。</li>
+<li>一般来讲，面试官拿到简历后，会针对简历上的内容结合岗位的需求，针对性提问，比如岗位对于深度学习算法基础要求比较高，那么会针这条内容中的每个点进行详细的提问。所以我们在这个阶段，需要把技能点拆分到最细。</li>
+</ul>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">输入的内容为</span><span class="o">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">{{input}}</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">如果为空，则：</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">{{content}}</span>
+</code></pre></div>
+<p>输出：</p>
+<p><img src="../img/image-20251105140708451.png" alt="image-20251105140708451" style="zoom:67%;" /></p>
+<h3 id="2">2 获取最近的真实面试题<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>首先，我们获取“最近100道面试题”的来源，是来自于我们在“录音分析模块”工作流中创建的面试题，数据库结构如下：</p>
+<p><img src="../img/image-20251105150642740.png" alt="image-20251105150642740" style="zoom:67%;" /></p>
+<p>这里的面试题主要来自于学生面试录音中获取到的各类面试题，也可以手动导入一部分数据，这里我们可以选择的策略比较多，比如：</p>
+<ul>
+<li>取最近100条</li>
+<li>随机无放回抽样100条</li>
+<li>按照某种分布，比如：大模型50条，其他的加起来50条等</li>
+<li>......</li>
+</ul>
+<p>这里抽样的策略可以有很多，我们上面列举的方式实现难度从上到下对应着由易到难，同时效果也会由好到坏。但是鉴于我们是出于项目初期：</p>
+<ul>
+<li>面试题的记录没有很多，最好的抽样方式和最简单的效果上查不了多少</li>
+<li>基于coze这个框架，实现无放回抽样100条和按照某种分布进行抽样会把这个问题复杂化，投入更多的人力成本</li>
+</ul>
+<p>因此，我们这里选择使用：取最近100条，如下图：</p>
+<p><img src="../img/image-20251105151951769.png" alt="image-20251105151951769" style="zoom:67%;" /></p>
+<p>这里我们看一下：</p>
+<ul>
+<li>查询字段：除了question以外，我们还需要查询出来bs_studio_create_time字段，这个字段是在数据插入数据库时取的当时时间，也就是数据写入时的时间，用于排序</li>
+<li>查询条件：question不为空，因为我们存入的时候就不存入空的数据，相当于查询所有的数据</li>
+<li>排序方式：使用bs_studio_create_time作为排序字段，并选择倒序排列的方式</li>
+</ul>
+<p>最后返回100条，就是最近的100道面试题。</p>
+<h2 id="_3">三、实现面试题生成<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>生成面试题分两个部分：基于技能生成面试题、基于项目经验生成面试题，都是基于内容分块的结果，拿到各自需要的信息，并进行循环处理。</p>
+<p><img src="../img/image-20251105170443641.png" alt="image-20251105170443641" style="zoom:67%;" /></p>
+<h3 id="1_1">1 基于技能点生成面试题<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>基于技能点生成的问题功能接受数组类型的技能点信息，并循环遍历，检索面试题面试宝典题库，并进行分润色和补齐</p>
+<p><img src="../img/image-20251105170002801.png" alt="image-20251105170002801" style="zoom:67%;" /></p>
+<p>循环体的输入输出如下：</p>
+<ul>
+<li>输入：拆分后的技能点数组</li>
+<li>输出：每个技能点对应的面试题</li>
+</ul>
+<p><img src="../img/image-20251105171449276.png" alt="image-20251105171449276" style="zoom:67%;" /></p>
+<p>接下来我们看一下面试题题库检索部分：</p>
+<p><img src="../img/image-20251105170825483.png" alt="image-20251105170825483" style="zoom:67%;" /></p>
+<p>这里需要注意：</p>
+<ul>
+<li>最大召回数量：设置5，同一个知识点可以有多个问题</li>
+<li>最小匹配度：设置0.9，这里查询出来的结果后续要给到大模型进行处理。这里需要对检索出来的内容的相关性要求更加严格，防止检索出不相干的问题</li>
+</ul>
+<p>开启查询改写和结果重排，以便提升查询效果。 </p>
+<p>接下来是问题润色和补齐部分，接收查询到的面试题和对应的知识点，对面试题进行生成：</p>
+<ul>
+<li>因为查询到的内容往往是一个段落，有的可能是面试题题目+答案，这里我们只需要答案。需要依赖大模型进行问题的精简</li>
+<li>面试宝典无法涵盖所有的技能点，会存在查询不出来结果的情况，这里我们需要做个兜底，从互联网上获取</li>
+</ul>
+<p>因为问题的润色和联网获取对模型的推理能力要求不高，所以在这里我们选择豆包1.5Pro的32K即可满足需求。</p>
+<p><img src="../img/image-20251105171537875.png" alt="image-20251105171537875" style="zoom:67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">你是一个大模型算法的面试题生成专家，能够根据输入的技能点和面试题题库中相关的内容，生成对应的面试题。如果没有检索出来的内容，请查询互联网并生成对应的面试题</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">注意：</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">1.</span><span class="w"> </span><span class="s">问题难易适中，不要故意刁难，也不要简单到三言两语就能说清楚</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="na">2.</span><span class="w"> </span><span class="s">从面试题中总结出来的问题要完整，具有良好的可读性。如果查询出来的结果中有问题原文，直接保留原文即可。</span>
+</code></pre></div>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">技能点：</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">{{skill}}</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">面试题题库查询结果：</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">{{input}}</span>
+</code></pre></div>
+<h3 id="2_1">2 基于项目经验生成面试题<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p>基于项目生成面试题部分，因为项目中的内容对比技能不属于通用知识，所以这里我们不进行检索类的操作，而是根据每个项目中的内容，基于提示词生成对应的面试题。所以在这个部分，提示词的质量直接影响着面试题生成的效果。 </p>
+<p><img src="../img/image-20251105172623708.png" alt="image-20251105172623708" style="zoom:67%;" /></p>
+<p>循环体基于简历内容拆分出来的项目经验部分字符串数组作为输入：</p>
+<p><img src="../img/image-20251105172826979.png" alt="image-20251105172826979" style="zoom:67%;" /></p>
+<p>循环体中，每次循环处理的是一个项目的全部内容，涉及到推理，所以在这里我们需要使用效果最好的模型，也就是豆包1.6深度思考模型。</p>
+<p><img src="../img/image-20251105181348785.png" alt="image-20251105181348785" style="zoom: 67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">你是一个大模型算法专家，能够根据用户的项目内容提问高质量问题</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">注意：</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="na">1.</span><span class="w"> </span><span class="s">对于项目的业务背景部分，找到可疑的点，提问用户。尤其是是质疑背景的真实性，如果觉得项目的立项有一些牵强，可以直接问到对应的点上。至少提问一个问题</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="na">2.</span><span class="w"> </span><span class="s">对于项目的技术栈部分，结合项目个人职责的具体的内容，对于比较难实现的部分，</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="na">3.</span><span class="w"> </span><span class="s">对于项目中所有的成果指标类的数据，比如效率提升多少，提问分子和分母是什么。对于性能类指标比如f1分数大于0.9，如果分数比较难实现，提问怎么实现的。这里提问2-3个问题，其他指标比如训练数据集多少，结合业务背景，提问用户怎么分布的</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="na">4.</span><span class="w"> </span><span class="s">如果项目中谈到了优化，针对优化项里面的内容，询问实现细节，以及是否有别的方案。</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="na">5.</span><span class="w"> </span><span class="s">直接提问：在落地这个项目中，你觉得你做的最有难度的一件事是什么，你是怎么克服的</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="na">6.</span><span class="w"> </span><span class="s">对于项目中的技术选型问题，比如某个文本分类项目使用的bert-base-chinese作为核心技术点。询问用户为什么要使用它，而不使用其他方案</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="na">7.</span><span class="w"> </span><span class="s">对于项目中用到的核心技术点，提问用户对于这个核心技术点的理解。问至少2个问题</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="na">8.</span><span class="w"> </span><span class="s">针对项目中个人职责部分，问至少2个怎么实现的，之类的问题。</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="na">除了以上必须要提的问题以外，根据你的理解，基于当前项目的特点，发挥几个问题。</span><span class="w"> </span><span class="s">提问的问题以问号分割 ，每个问题之前加一个项目名的前缀， 比如： 对于xxx项目：你的数据预处理部分怎么实现的？</span>
+</code></pre></div>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">项目内容</span><span class="o">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">{{project_exp}}</span>
+</code></pre></div>
+<h2 id="_4">四、实现面试题整合<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>面试题整合阶段需要实现以下几个功能：</p>
+<ul>
+<li>把三个来源的面试题进行整合，并去重</li>
+<li>基于和大模型算法岗位的关联程度，对面试题进行删减</li>
+<li>去除口语化表达</li>
+<li>补充一些人事问题</li>
+</ul>
+<p><img src="../img/image-20251105182610436.png" alt="image-20251105182610436" style="zoom:67%;" /></p>
+<p>该节点接收3个输入：</p>
+<ul>
+<li>project_gen：基于项目提出的问题</li>
+<li>skill_gen：基于技能点提出的问题</li>
+<li>last_100：最近的100条面试题</li>
+</ul>
+<p><img src="../img/image-20251105182823994.png" alt="image-20251105182823994" style="zoom:67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">你是一个面试题整理整合专家，能够根据输入的多个来源的面试题进行整合：</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">1.</span><span class="w"> </span><span class="s">如果是基础比如java、python、mysql之类的，对于每个技术点保留2个就可以了。 如果是对于比较核心的比如RAG、agent的技术，数量则需要进行增加， 至少4个以上；其他的比如transformer的，2个核心问题即可</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">2.</span><span class="w"> </span><span class="s">项目面试题可以直接保留</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">3.</span><span class="w"> </span><span class="s">面试题不可出现重复</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="na">4.</span><span class="w"> </span><span class="s">整合的结果以字符串数组数据格式返回，一个问题一个元素</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="na">5.</span><span class="w"> </span><span class="s">问题要进行书面化表达，不要出现“你好”，“那你们是怎么做的”之类的过于口语化的表达，如果有类似的表达，提来出来问题本身。</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="na">6.</span><span class="w"> </span><span class="s">提问几个常见的人事问题，比如：为什么从上家公司离职，如果你的领导当面说你能力不行你该怎么办等问题，这部分问题需要有适当难度。</span>
+</code></pre></div>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">项目面试题：</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">{{project_gen}}</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">技能点面试：</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">{{skill_gen}}</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="na">近期的100道面试题：</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="na">{{last_100}}</span>
+</code></pre></div>
+<p>输出：</p>
+<p><img src="../img/image-20251105204128073.png" alt="image-20251105204128073" style="zoom:67%;" /></p>
+<h2 id="_5">五、工作流调试<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>工作流搭建好后，我们上传一份简历文件，并试运行工作流，最终节点输出如下：</p>
+<p><img src="../img/image-20251107040734259.png" alt="image-20251107040734259" style="zoom:67%;" /></p>
+<p>在调试的过程中，运行日志如下：</p>
+<p><img src="../img/image-20251107040544389.png" alt="image-20251107040544389" style="zoom:67%;" /></p>
+<p>我们可以看到，循环执行的次数较多，同时，这个工作流消耗的token数也是非常高，且最终消耗token数也是10万级别的。</p>
+<p><img src="../img/image-20251105011214399.png" alt="image-20251105011214399" style="zoom:67%;" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ©Copyright 2024 AITutorials.CN This website has been reviewed by the review agency. 京ICP备23006137号
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+    
+  </body>
+</html>

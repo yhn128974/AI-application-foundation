@@ -24,7 +24,7 @@ class ProblemDefinition:
             "计算资源": "现有服务器配置"
         }
 
-    def define_features_and_labels(self):
+    def define_features_and_labels(self):   
         """定义特征和标签"""
         features = {
             "用户特征": ["年龄", "性别", "购买历史", "浏览行为"],

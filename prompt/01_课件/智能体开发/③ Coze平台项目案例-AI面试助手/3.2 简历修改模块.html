@@ -1,0 +1,2085 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="3.1%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D.html">
+      
+      
+        <link rel="next" href="3.3%20%E5%BD%95%E9%9F%B3%E5%88%86%E6%9E%90%E6%A8%A1%E5%9D%97.html">
+      
+      
+      <link rel="icon" href="../img/AI.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>3.2 简历评估模块 - 智能体开发（Coze）V7.5</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#32" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../index.html" title="智能体开发（Coze）V7.5" class="md-header__button md-logo" aria-label="智能体开发（Coze）V7.5" data-md-component="logo">
+      
+  <img src="../img/AI.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            智能体开发（Coze）V7.5
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.2 简历评估模块
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="智能体开发（Coze）V7.5" class="md-nav__button md-logo" aria-label="智能体开发（Coze）V7.5" data-md-component="logo">
+      
+  <img src="../img/AI.jpg" alt="logo">
+
+    </a>
+    智能体开发（Coze）V7.5
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    课程首页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ① Coze平台介绍及入门
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ① Coze平台介绍及入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A0%20Coze%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%85%A5%E9%97%A8/1.1%20Coze%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1 Coze平台介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A0%20Coze%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%85%A5%E9%97%A8/1.2%20Coze%E5%B9%B3%E5%8F%B0%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2 Coze平台入门实战
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ② Coze平台进阶使用
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ② Coze平台进阶使用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A1%20Coze%E5%B9%B3%E5%8F%B0%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/2.1%20%E7%A7%81%E6%9C%89%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1 私有数据访问
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A1%20Coze%E5%B9%B3%E5%8F%B0%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/2.2%20%E5%A4%9A%E6%A8%A1%E6%80%81%E5%92%8C%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2 多模态和循环结构
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A1%20Coze%E5%B9%B3%E5%8F%B0%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/2.3%20Coze%20API%E8%B0%83%E7%94%A8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3 Coze API调用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ③ Coze平台项目案例 AI面试助手
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ③ Coze平台项目案例 AI面试助手
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.1%20%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 项目介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    3.2 简历评估模块
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="3.2%20%E7%AE%80%E5%8E%86%E4%BF%AE%E6%94%B9%E6%A8%A1%E5%9D%97.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 简历评估模块
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、工作流介绍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、实现数据准备
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、实现数据准备">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 使用插件实现文字提取
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 使用数据库实现违禁词功能
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 使用数据库实现违禁词功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 创建数据表并录入违禁词
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 创建数据库查询节点
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 获取当前日期
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、实现简历内容分块
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、实现简历内容分块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 简历内容分块LLM节点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 拓展：LLM模型的上下文窗口
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、实现简历内容处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、实现简历内容处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 拓展：上下文腐烂
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 个人信息评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 技能评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 学历信息评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 工作经历评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 项目经历评估
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 项目经历评估">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 项目经历评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 项目重复度评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 拓展：分治策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 个人评价评估
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、实现评估结果整合
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、工作流调试
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、总结
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 项目收益
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 优化方向
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.3%20%E5%BD%95%E9%9F%B3%E5%88%86%E6%9E%90%E6%A8%A1%E5%9D%97.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 录音分析模块
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.4%20%E9%9D%A2%E8%AF%95%E9%A2%98%E7%94%9F%E6%88%90%E6%A8%A1%E5%9D%97.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4 面试题生成模块
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.5%20%E6%99%BA%E8%83%BD%E4%BD%93%E7%BC%96%E6%8E%92.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.5 智能体编排
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.6%20%E6%89%B9%E5%A4%84%E7%90%86%E6%A8%A1%E5%9D%97.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.6 批处理模块
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ④ 拓展：Coze平台实战案例
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            ④ 拓展：Coze平台实战案例
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.1%20%E6%A1%88%E4%BE%8B%E8%AF%B4%E6%98%8E.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1 案例说明
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.2%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E5%8A%A9%E6%89%8B.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2 智能问答小助手
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.3%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%97%85%E6%B8%B8%E8%A7%84%E5%88%92%E5%B0%8F%E7%B2%BE%E7%81%B5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3 旅游规划小精灵
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.4%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%99%BA%E8%83%BD%E9%9D%A2%E8%AF%95%E5%AE%98.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4 智能面试官
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.5%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%99%BA%E8%83%BD%E5%8A%A9%E6%95%99.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.5 AI智慧助教
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E2%91%A3%20%E6%8B%93%E5%B1%95%EF%BC%9ACoze%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B/4.6%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%8F%A3%E8%AF%AD%E7%BB%83%E4%B9%A0%E4%B8%93%E5%AE%B6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.6 英语口语陪练专家
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、工作流介绍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、实现数据准备
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、实现数据准备">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 使用插件实现文字提取
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 使用数据库实现违禁词功能
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 使用数据库实现违禁词功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 创建数据表并录入违禁词
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 创建数据库查询节点
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 获取当前日期
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、实现简历内容分块
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、实现简历内容分块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 简历内容分块LLM节点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 拓展：LLM模型的上下文窗口
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、实现简历内容处理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、实现简历内容处理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 拓展：上下文腐烂
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 个人信息评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 技能评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 学历信息评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 工作经历评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 项目经历评估
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 项目经历评估">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 项目经历评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 项目重复度评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 拓展：分治策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 个人评价评估
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、实现评估结果整合
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、工作流调试
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、总结
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 项目收益
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 优化方向
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="32">3.2 简历评估模块<a class="headerlink" href="#32" title="Permanent link">&para;</a></h1>
+<h2 id="_1">一、工作流介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>功能：简历评估模块的功能就是接收学生的文件，并基于讲师总结的面试的各类规则，给学生输出简历中存在的问题</p>
+<p><img src="../img/image-20251024010316001.png" alt="image-20251024010316001" style="zoom:67%;" /></p>
+<p>具体步骤如下：</p>
+<ul>
+<li>
+<p>输入：简历文档(pdf/doc格式)</p>
+</li>
+<li>
+<p>执行流程：</p>
+</li>
+<li>数据准备：基于ORC插件读取简历中的文字内容，同时还需要准备：当前时间，在评估毕业时间等信息的时候结合当前时间；违禁词数据，用于在项目判断中判断是否存在不该出现的词语</li>
+<li>简历内容分块：把上一步提取出来的简历文字内容进行拆分，分为个人信息、技能、学历、工作经历、项目经历、个人评价几个部分，在后续的处理中分别单独处理</li>
+<li>简历内容处理：对个人信息、技能、学历、工作经历、项目经历、个人评价部分的简历内容分别单独进行处理，输出各个部分的评估结果</li>
+<li>
+<p>内容整合：把每个部分召回的问题进行整合，并输出给学生对应的内容</p>
+</li>
+<li>
+<p>输出：简历中存在的问题对应的Markdown</p>
+</li>
+</ul>
+<h2 id="_2">二、实现数据准备<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>该部分内容如下：</p>
+<p><img src="../img/image-20251025003615262.png" alt="image-20251025003615262" style="zoom:67%;" /></p>
+<ul>
+<li>开始节点：我们这个流水线整体是围绕着简历修改进行的，所以对于开始节点，我们只需要接收简历即可。剩下的内容工作流自行判断和完成。</li>
+</ul>
+<p><img src="../img/image-20251025003321704.png" alt="image-20251025003321704" style="zoom:67%;" /></p>
+<h3 id="1">1 使用插件实现文字提取<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>简历文字提取节点接收resume作为输入，输出即可。从前面的学习，我们了解到，这里url需要的是str类型的数据，而我们传入的是doc类型。这里coze会把我们上传的doc文件存到一个临时存储中并返回一个url，所以这里的兼容、可执行的。</li>
+<li>
+<p><img src="../img/image-20251025003520911.png" alt="image-20251025003520911" style="zoom:67%;" /></p>
+</li>
+<li>
+<p>对于上传的pdf文件，最终以OCR解析出来后，数据会被存到pdf_content中，我们后面要用的就是这个字段的内容。但是有时候doc的可能会出现在content里，所以这里我们也需要会用到content字段。 这里两个字段只会有一个是有内容的。</p>
+</li>
+</ul>
+<h3 id="2">2 使用数据库实现违禁词功能<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>这里违禁词为什么使用数据库实现的优势：</p>
+<ol>
+<li>便于管理：课程内容和经验一直是迭代的，所以违禁词的词库会一直不断地写入新的数据，数据库对增删改查非常擅长。对比修改提示词每次都还要发布流水线，发布智能体，更新数据库直接更新即可，操作便利。</li>
+<li>支持API操作：违禁词的更新支持API进行，目前我们做的项目是一个coze的智能体，如果后续我们要把简历修改功能集成到内部教学系统中时，在前端操作-&gt;调用API会成为一个必然的操作。</li>
+<li>方便多处使用：违禁词除了在当前流水线中使用，未来也可能会用到一些别的业务中，一份数据库的数据可以被多条流水线引入，且数据都访问到的是同一份，我们只需要维护这一份数据就行。</li>
+</ol>
+<h4 id="21">2.1 创建数据表并录入违禁词<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<ul>
+<li>表结构如下，非常简单，我们只需要知道违禁词的时候有哪些就行了。</li>
+</ul>
+<p><img src="../img/image-20251025004243823.png" alt="image-20251025004243823" style="zoom:67%;" /></p>
+<ul>
+<li>把输入导入到测试环境：素材 <strong>07-违禁词数据.xlsx</strong> ，过程略</li>
+<li>
+<p><img src="../img/image-20251025010000622.png" alt="image-20251025010000622" style="zoom:67%;" /></p>
+</li>
+<li>
+<p>至此我们就完成了创建数据库查询节点的工作，这里我们导入的数据是测试环境的，在业务上线时同样的操作，生产环境也需要做一次。</p>
+</li>
+</ul>
+<h4 id="22">2.2 创建数据库查询节点<a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
+<p>创建违禁词查询节点，如下图：</p>
+<ul>
+<li>数据表选择刚才创建的即可</li>
+<li>查询字段：只需要违禁词即可，其他字段在后续用不上。</li>
+<li>查询条件：uuid不为空， 因为uuid由系统且不会为空，所以这里相当于是查询出来所有的数据。</li>
+</ul>
+<p><img src="../img/image-20251025012813614.png" alt="image-20251025012813614" style="zoom:67%;" /></p>
+<ul>
+<li>最后，输出内容如下图。我们实际用到是outputList，包含所有的违禁词</li>
+</ul>
+<p><img src="../img/image-20251025013510230.png" alt="image-20251025013510230" style="zoom:67%;" /></p>
+<h3 id="3">3 获取当前日期<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>添加插件，在插件商店中搜索“日期”，如下图，使用“现在时间”这个插件即可实现。 除此之外也有一些别的插件也有类似功能，可自行替换使用。</li>
+</ul>
+<p><img src="../img/image-20251025013733728.png" alt="image-20251025013733728" style="zoom:67%;" /></p>
+<ul>
+<li>可以看到，使用这个插件获取当前时间不需要任何输入，我们只需要接收它的输出message即可。格式是常见的YYYY-MM-DD HH:MM:SS格式， 其实在这里格式不是特别重要，因为后面我们是给大模型来使用的， 只要输出结果没有错误即可。</li>
+</ul>
+<p><img src="../img/image-20251025013646335.png" alt="image-20251025013646335" style="zoom:67%;" /></p>
+<h2 id="_3">三、实现简历内容分块<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>简历内容分块仅需一个LLM模块即可实现， 虽然流程比较简单，但是这里的提示词的编写非常重要。对后面的任务影响较大。</p>
+<p><img src="../../../../../../../../Library/Application Support/typora-user-images/image-20251025014342963.png" alt="image-20251025014342963" style="zoom:67%;" /></p>
+<h3 id="1-llm">1 简历内容分块LLM节点<a class="headerlink" href="#1-llm" title="Permanent link">&para;</a></h3>
+<ul>
+<li>添加一个LLM节点，首先这里我们选择模型，<strong>不再使用默认的豆包1.5Pro32K</strong>，<strong>而是使用豆包1.5Pro256K</strong>。这里是因为32K的上下文能够处理的问题数量有限， 我们需要使用具备使用更大的上下文窗口的能力。确保能处理内容比较多的简历。</li>
+<li>接下来是模型的输入，因为使用文字提取插件两个字段都有可能输出内容，所以这里我们把两个字段的内容都输入进来进行处理。</li>
+</ul>
+<p><img src="../img/image-20251025014243493.png" alt="image-20251025014243493" style="zoom:67%;" /></p>
+<p>接下来我们给模型输入提示词，首先是系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">你是一个大模型和算法工程师简历内容提取助手，能够根据简历中的内容提取出来对应的实体。你将接受简历内容作为输入，并按照下列要求进行拆分，并输出为json格式</span><span class="o">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">姓名：字段名{{name}}</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">基本信息</span><span class="o">:</span><span class="w"> </span><span class="s">字段名 {base_info}}, 包含个人姓名、求职岗位、期望薪资、工作年限、手机号、邮箱号等基本信息，不包含学历、技能、爱好</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="na">个人技能：字段名</span><span class="w"> </span><span class="s">{{skill}}, 个人掌握的IT相关的技能</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="na">教育经历：字段名</span><span class="w"> </span><span class="s">{{education}}， 包含学历、在校时间、专业、是否为计算机专业、以及在简历内容的第几部分</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="na">工作经历：字段名</span><span class="w"> </span><span class="s">{{work_exp}},  包括公司、时间、角色，在公司里面从事哪些内容、以及在简历内容的第几部分</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="na">项目经验：字段名</span><span class="w"> </span><span class="s">{{project_exp}} , 包含简历上所有项目相关的、以及在简历内容的第几部分，每个项目作为数组中的一个元素返回，最后返回一个字符串数组，数组长度和项目数一致</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="na">个人爱好、评价：字段名</span><span class="w"> </span><span class="s">{{self}}, 包含所有的个人爱好以及软素质评价等部分、以及在简历内容的第几部分</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="na">上下文：字段名{{context}}，包含以上所有内容的概括，后续用于分块检验（比如单独校验基本信息、单独校验教育经历）作为参考使用。</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="na">注意，以上的要求需要严格遵循，除了上下文以外，其他的内容不要省略和总结，直接拆出来原文即可，不要出现错误的划分</span>
+</code></pre></div>
+<ul>
+<li>首先我们给大模型指定了一个角色，说明它的能力和要做的事情，让模型输出结果更可控和更聚焦。</li>
+<li>接下来，因为我们要让大模型识别多个部分的内容，为了提高识别的准确度，需要使用few-shot的方式，让模型在提示词中学习如何识别。</li>
+<li>因为我们要输出的结果是多个字段，所以这里我们字段名要在提示词中指定， 并以{{字段名}}的方式，可以不是{{}}，但一定是需要加符号来分割，强调字段名，减少被误判的可能性。</li>
+<li>最后，要把注意事项告诉模型，不要擅自该内容， 保证原始内容到分割后的内容的一致性。</li>
+</ul>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">输入的内容为</span><span class="o">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">{{input}}</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">如果为空，则：</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">{{content}}</span>
+</code></pre></div>
+<p>输出部分：</p>
+<p><img src="../img/image-20251025021434678.png" alt="image-20251025021434678" style="zoom:67%;" /></p>
+<h3 id="2-llm">2 拓展：LLM模型的上下文窗口<a class="headerlink" href="#2-llm" title="Permanent link">&para;</a></h3>
+<p>模型的上下文大小（Context Length）直接决定了模型能同时处理多少信息，这就像给AI一个工作台，32K的工作台和256K的工作台，其能同时展开处理的“材料”量是天差地别的。</p>
+<p>下面的表格可以让你快速了解两者的核心区别。</p>
+<p>如何选择合适的上下文大小：</p>
+<ul>
+<li>优先考虑32K的情况：对于绝大多数日常应用，如客服机器人、简单的写作辅助、代码补全、分析单篇文档等，32K已经完全足够。它的响应速度通常更快，资源消耗也更低。</li>
+<li>需要256K的情况：当你需要处理超长文档或进行深度、复杂的多轮交互时，256K就成为必需品。例如，作为研究人员需要让AI模型理解并关联一篇数百页的学术专著中的各个论点；或者作为开发者，希望AI能基于一个完整的大型项目代码库进行代码分析和生成</li>
+</ul>
+<hr />
+<p><strong>以下内容了解即可：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>对比维度</strong></th>
+<th style="text-align: left;">32K上下文窗口</th>
+<th style="text-align: left;">256K上下文窗口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">信息处理量</td>
+<td style="text-align: left;">相当于几十页的书或一次中等长度的对话。</td>
+<td style="text-align: left;">相当于一本数百页的厚书（如《三体》）、长篇研究报告或极长的对话历史。</td>
+</tr>
+<tr>
+<td style="text-align: left;">典型应用场景</td>
+<td style="text-align: left;">日常问答、短文翻译、简短代码编写、总结单篇文章。</td>
+<td style="text-align: left;">深度分析整本书、处理超长技术文档（如完整代码库）、撰写长篇论文、进行极其复杂的多轮对话（如全程记住数小时聊天内容）。</td>
+</tr>
+<tr>
+<td style="text-align: left;">技术需求与成本</td>
+<td style="text-align: left;">相对较低，对计算资源和内存的要求更友好。</td>
+<td style="text-align: left;">非常高，需要更优化的模型架构（如MoE）和KV缓存技术来控制显存占用，推理速度也可能更慢。</td>
+</tr>
+<tr>
+<td style="text-align: left;">举例</td>
+<td style="text-align: left;">分析一篇新闻社论的论点和论据。</td>
+<td style="text-align: left;">读完一本《百年孤独》，然后让你和它讨论布恩迪亚家族七代人的命运关联和魔幻现实主义手法。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">四、实现简历内容处理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>简历内容处理是简历修改模块的核心，所有的评估的逻辑都是在这里实现， 学生拿到的报告也是这里生产。 因此，这个环节的质量对结果有直接影响。</p>
+<p>在实现上，每个部分的评估都是并行的，除了项目评估以外，其他都是各通过一个LLM节点实现。 这里对比串行和并行的效率差：</p>
+<ul>
+<li>串行：一个部分评估结束了，才执行下一个部分的评估。 一共有6个部分的评估，假设每个评估节点都是n秒完成，最后总的执行时间就是6n</li>
+<li>并行：所有部分评估并行执行，总时间取决于最长的那个评估节点。 如果每个节点都是n秒完成，总时间就是n， 少了5倍的时间。</li>
+</ul>
+<p>因为我们每个部分的评估都是互相独立互不干扰的，所以我们这里使用并行加快执行速度。</p>
+<p><img src="../img/image-20251025021820349.png" alt="image-20251025021820349" style="zoom:67%;" /></p>
+<h3 id="1_1">1. 拓展：上下文腐烂<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>在学习简历内容的处理之前，我们先抛出一个问题： 为什么要拆分成不同部分进行并行执行？ 原因可以有以下几个：</p>
+<ul>
+<li>提示词好维护：拆分以后，每个提示词只需要写对应的部分，互不干扰，方便维护</li>
+<li>并行加快计算时间：每个部分并行执行，比一个大任务执行时间更短。 </li>
+</ul>
+<p>以上都对，但并不是核心点，核心是因为为了防止“上下文腐烂”：</p>
+<p>上下文腐烂（Context Rot）是一个描述大语言模型（LLM）在处理长文本时出现的性能下降现象的专业术语。简单来说，<strong>给模型的上下文信息不是越多越好，当输入长度超过某个限度，模型的理解和回答质量反而会变差</strong></p>
+<hr />
+<p><strong>以下内容了解即可：</strong></p>
+<p>理解了问题所在，我们就可以采取更聪明的策略来与大模型协作，而不是盲目地将所有信息都塞给它。</p>
+<ul>
+<li><strong>对于普通用户</strong>：在与AI进行长对话或分析长文档时，可以有意识地帮助模型聚焦。</li>
+<li><strong>关键指令重述</strong>：在长对话的中后段，适时地重复最核心的要求和约束条件。</li>
+<li><strong>分步处理</strong>：将复杂的长任务拆解成几个步骤，一步一步地让模型处理，而不是要求它一次性消化所有信息。</li>
+<li>∙<strong>先行摘要</strong>：如果有一篇很长的文章，可以先让模型或自己先对文章进行分段摘要，然后基于摘要进行提问。</li>
+<li>∙<strong>对于开发者/AI应用构建者</strong>：需要通过系统设计来根本性地解决问题。</li>
+<li><strong>检索增强生成（RAG）</strong>：这是最核心的解决方案。不要将整个知识库塞进上下文，而是先将资料存入向量数据库。当用户提问时，系统先<strong>自动检索</strong>出与问题最相关的几个信息片段，再将这<strong>一小段精准的信息</strong>连同问题一起交给模型生成答案。这能极大降低上下文中的噪声36。</li>
+<li><strong>上下文总结与剪枝</strong>：在RAG的基础上，可以先用一个小模型对检索到的内容进行摘要或删除无关部分，再将精华提交给主模型，进一步压缩上下文。∙<strong>赋予模型“外部记忆”</strong>：可以为AI设计像“笔记本”一样的工具，让它把重要的信息（如多轮对话的摘要、关键决策）记录在外部的存储空间中，需要时再读取，从而解放上下文窗口。</li>
+</ul>
+<p>总而言之，面对上下文腐烂，最有效的策略是转变思维：将大模型视为一个强大的信息处理器，而非一个无限容量的记忆库。我们的目标不是一味地扩展上下文窗口，而是通过精心的“上下文工程”，持续为模型提供一份“少而精”的工作指南</p>
+<p>有兴趣的同学可以研究一下如何破解：https://zhuanlan.zhihu.com/p/1963677021222725081</p>
+<h3 id="2_1">2 个人信息评估<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p>个人信息评估接收输入：
+* base_info: 内容分块以后的个人信息部分
+* context: 内容分块后的上下文，用于判断和个人信息是否有冲突
+* date:  当前时间，用于工作年限等时间相关的信息判断</p>
+<p><img src="../img/image-20251025024120849.png" alt="image-20251025024120849" style="zoom:67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">你是一个大模型和算法工程师简历审核大师，专门负责个人基本信息部分，能够根据输入的个人信息内容基于规则，参考上下文，并判断是否有需要修改的部分。</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">规则如下：</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">1.</span><span class="w"> </span><span class="s">个人信息中不要包含具体的期望薪资</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="na">2.</span><span class="w"> </span><span class="s">求职意向不明确：如果上下文里面的项目大部分都是大模型的，求职意向就不要写“算法工程师”</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="na">3.</span><span class="w"> </span><span class="s">不要使用QQ邮箱，显得不专业</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="na">4.</span><span class="w"> </span><span class="s">学历非优秀本科不建议意向是算法工程师</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="na">5.</span><span class="w"> </span><span class="s">需要有手机号、邮箱、年龄，城市，信息完整</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="na">6.</span><span class="w"> </span><span class="s">工作年限和毕业时间需要对得上， 比如2023年毕业，现在是2025年，最多写3年（1年实习+2年实际工作）</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="na">如果违反规则，则需要给用户列出需要修改的部分，</span><span class="w"> </span><span class="s">你也可以提出一些建议，但是为了减少，最终返回的格式：</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="na">需要修改：需要修改的部分以及怎么修改，需要附带简历原文</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="na">参考建议：其他参考建议，这里只能是给个人信息相关的修改建议，控制在3条以内，不得超过需要修改的部分。</span>
+</code></pre></div>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">个人信息部分：</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">{{base_info}}</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">上下文</span><span class="o">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="na">{{context}}</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="na">当前时间：{{date}}</span>
+</code></pre></div>
+<p>输出：直接输出纯文本即可</p>
+<p><img alt="image-20251025024918527" src="../img/image-20251025024918527.png" /></p>
+<h3 id="3_1">3 技能评估<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>技能评估接收输入：</p>
+<ul>
+<li>skill: 内容分块中的技能部分</li>
+<li>context: 内容分块后的上下文，用于判断和个人信息是否有冲突</li>
+<li>project_exp:  项目经验。 技能应当和项目经验挂钩</li>
+</ul>
+<p>因项目评估属于比较复杂的逻辑，需要结合项目经验中的大量文本内容做对比，为提升效果，我们这里使用<strong>豆包1.6深度思考</strong>模型代替<strong>豆包1.5pro</strong></p>
+<p><img src="../img/image-20251028224305647.png" alt="image-20251028224305647" style="zoom:67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">你是一个大模型和算法工程师简历审核大师，专门负责个人技能部分，能够根据输入的个人技能基于规则，参考上下文，并判断是否有需要修改的部分。</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">规则，具有最高优先级，需要保证执行到位：</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="na">1.</span><span class="w"> </span><span class="s">个人技能不要超过12条</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="na">2.</span><span class="w"> </span><span class="s">个人技能中需要有至少2-3条专门描述大模型技术的，比如RAG、微调（可选，不写也行）、大模型使用相关</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="na">3.</span><span class="w"> </span><span class="s">每一条中的内容之间需要是相关的，比如： 掌握深度学习的原理，如RNN、LSTM、GRU、Transformer等， 不要一条里面混入多个不相关的</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="na">4.</span><span class="w"> </span><span class="s">不要写精通，但凡遇到精通的，统统需要去掉。掌握和熟练等不要干涉，候选者自己写就行</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="na">5.</span><span class="w"> </span><span class="s">如果是转行的，需要注意，还是要体现AI的技术栈，其他方向的少些， 篇幅不超过1/3</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="na">6.</span><span class="w"> </span><span class="s">技能点要多体现一些技能点，不要概括，因为HR看不懂，把关键词抛出来</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="na">7.</span><span class="w"> </span><span class="s">项目中出现的技能点，在技能中需要体现关键词。比如milvus出现在了项目中，那么个人技能也得有。项目中没有用到的技术点，需要给用户指出来</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="na">8.</span><span class="w"> </span><span class="s">技能点里面但凡是熟练、掌握的，在项目内容中要有联系</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="na">9.</span><span class="w"> </span><span class="s">个人技能所在的位置需要在工作经历和项目经历前面</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="na">注意：</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="na">1.</span><span class="w"> </span><span class="s">只输出技能相关的，不要输出项目相关</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="na">2.</span><span class="w"> </span><span class="s">技术栈的表述不要过多介入，有关键词即可</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="na">3.</span><span class="w"> </span><span class="s">没有违反以上规则的内容的部分，不要建议用户删除数据</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="na">如果违反规则，则需要给用户列出需要修改的部分，并指出犯了什么错误</span>
+</code></pre></div>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">个人技能：</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">{{skill}}</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="na">上下文：</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="na">{{context}}</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="na">项目：</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="na">{{project_exp}}</span>
+</code></pre></div>
+<h3 id="4">4 学历信息评估<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>学历评估接收输入：</p>
+<ul>
+<li>education:  教育经历</li>
+<li>context：简历总结，作为学历信息评估时的参考</li>
+<li>date：当前日期</li>
+</ul>
+<p>为减少大模型的幻觉问题，我们给LLM节点赋予头条搜索的技能，让它能够自动取查询学校相应的信息，并根据系统提示词中的内容对学历信息进行评估。</p>
+<p><img src="../img/image-20251025025649777.png" alt="image-20251025025649777" style="zoom:67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">你是一个大模型和算法工程师简历审核大师，专门负责教育部分，具备联网搜索学生给出的学校的信息的能力，能够根据输入的学历内容基于规则，参考上下文，并判断是否有需要修改的部分。</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">规则，具有最高优先级，需要保证执行到位：</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">1.</span><span class="w"> </span><span class="s">学历不可造假或者包装，这一条直接在返回的内容中提醒用户： 需要保证学历的真实性，造假会有严重后果</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="na">2.</span><span class="w"> </span><span class="s">避短，参考上下文工作经历和项目经历的位置， 如果学校是三本甚至专科，建议调整位置，放到后面</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="na">3.</span><span class="w"> </span><span class="s">扬长，如果学校是计算机专业，且毕业时间在4年以内，可以把相关课程展开写一下，尤其是毕业2年以内的，建议这么做。 如果学校是211或者985，最好标记出来</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="na">4.</span><span class="w"> </span><span class="s">教育经历和上下文内容不要有冲突</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="na">如果违反规则，则需要给用户列出需要修改的部分，</span><span class="w"> </span><span class="s">你也可以提出一些建议，但是为了减少，最终返回的格式：</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="na">需要修改：需要修改的部分以及怎么修改，需要附带简历原文</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="na">参考建议：其他参考建议，这里只能是给学历信息相关的修改建议，控制在3条以内，不得超过需要修改的部分。</span>
+</code></pre></div>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">学历信息：</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">{{education}}</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">上下文：</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="na">{{context}}</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="na">当前时间：{{date}}</span>
+</code></pre></div>
+<h3 id="5">5 工作经历评估<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>工作经历部分接收输入：</p>
+<ul>
+<li>context：简历总结，作为工作经历评估时的参考</li>
+<li>work_exp：工作经历</li>
+<li>date：当前日期</li>
+</ul>
+<p>因工作经历评估属于比较复杂的逻辑，我们这里使用<strong>豆包1.6深度思考</strong>模型代替<strong>豆包1.5pro</strong></p>
+<p><img src="../img/image-20251029151627694.png" alt="image-20251029151627694" style="zoom:67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="na">你是一个大模型和算法工程师简历审核大师，专门负责工作经历部分，能够根据输入的工作经历内容基于规则，参考上下文，并判断是否有需要修改的部分。</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="na">规则，具有最高优先级，需要保证执行到位：</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="na">1.</span><span class="w">  </span><span class="s">每段经历的公司名、工作年限、以及角色必须是完整的</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="na">2.</span><span class="w"> </span><span class="s">工作经历和项目经历需要分开来写， 工作经历是工作经历，项目是项目</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="na">3.</span><span class="w"> </span><span class="s">每份工作中的工作内容需要列出来</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="na">4.</span><span class="w"> </span><span class="s">如果工作经验特别长的， 和AI、大模型无关的篇幅不要太多，控制在一半以内</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="na">5.</span><span class="w"> </span><span class="s">如果毕业3年以内的，如果实习和实际工作不在一个公司的，建议改成一家公司</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="na">6.</span><span class="w"> </span><span class="s">工作经历和上下文里面的项目相关的内容不要有冲突</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="na">7.</span><span class="w"> </span><span class="s">工作经历内容的位置需要在项目经验前面</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="na">对于没有内容的，可以简单给一些提示。</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="na">如果违反规则，则需要给用户列出需要修改的部分，</span><span class="w"> </span><span class="s">你也可以提出一些建议，但是为了减少，最终返回的格式：</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="na">需要修改：需要修改的部分以及怎么修改，需要附带简历原文</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="na">参考建议：其他参考建议，这里只能是给工作经历信息相关的修改建议，控制在3条以内，不得超过需要修改的部分。</span>
+</code></pre></div>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="na">工作经历</span><span class="o">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="na">{{work_exp}}</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="na">上下文</span><span class="o">:</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="na">{{context}}</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="na">当前时间：</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="na">{{date}}</span>
+</code></pre></div>
+<h3 id="6">6 项目经历评估<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p>项目部分作为IT行业找工作时最容易提现区分度，也是最需要控制内容的部分，但是实际上做起来并不容易：</p>
+<ol>
+<li>内容多：项目的文字都是非常多的，并且每个同学写的项目数也不同，有的10年+经验的同学甚至能写5个+项目，对模型的能力有比较高的考验。</li>
+<li>容易雷同：因为同学们参考的模板都是类似的，且部分同学没有要修改内容的意识或修改不到位，导致雷同率较高。有的同学甚至项目名直接和课程中的项目名保持一致，在用人公司筛选简历时，容易被淘汰。</li>
+<li>校验项多：对比其他部分的内容，项目中的需要校验的内容更多，实际上也对模型有着比较高的考验</li>
+</ol>
+<p>该部分的内容基于一个循环体实现</p>
+<p><img src="../img/image-20251029163142805.png" alt="image-20251029163142805" style="zoom:67%;" /></p>
+<p>循环体的循环内容如下：</p>
+<p><img src="../img/image-20251029163359545.png" alt="image-20251029163359545" style="zoom:67%;" /></p>
+<ul>
+<li>循环体接收项目经验数组作为循环条件，遍历数组，并依次处理每个项目的内容评估</li>
+<li>循环体结束后把处理结果进行汇总，并输出</li>
+</ul>
+<p>对于循环体中处理每个项目的内容，主要有两部分逻辑：</p>
+<ul>
+<li>项目经历评估：基于LLM + prompt ，实现简历内容评估</li>
+<li>项目重复度评估：基于RAG，和简历内容进行匹配，并评估简历重复度</li>
+</ul>
+<h4 id="61">6.1 项目经历评估<a class="headerlink" href="#61" title="Permanent link">&para;</a></h4>
+<p>项目经历作为循环体中的一部分，每次处理的内容是一个项目的内容，接收输入如下：</p>
+<ul>
+<li>project_exp：循环中一个项目的内容</li>
+<li>context：简历的上下文</li>
+<li>date：当前日期</li>
+<li>forbid_list：违禁词</li>
+</ul>
+<p>因项目评估属于比较复杂的逻辑，我们这里使用<strong>豆包1.6深度思考</strong>模型代替<strong>豆包1.5pro</strong>。</p>
+<p><img src="../img/image-20251029165708544.png" alt="image-20251029165708544" style="zoom:67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="na">你是一个大模型和算法工程师简历审核大师，专门负责项目经历部分，能够根据输入的项目经历内容基于规则，参考上下文，并判断是否有需要修改的部分。</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="na">规则：</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="na">1.</span><span class="w"> </span><span class="s">项目数量部分，刚毕业写2个项目即可。， 工作2年（含实习）不能低于3个，3年不要低于4个，无论几年，最好不要超过5个。</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="na">2.</span><span class="w"> </span><span class="s">工作经历和项目经历需要分开来写， 工作经历是工作经历，项目是项目</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="na">3.</span><span class="w"> </span><span class="s">每个项目的结构至少需要包含项目介绍（或者背景）、个人负责部分、成果数据，需要分开写</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="na">4.</span><span class="w"> </span><span class="s">建议在每个项目前面加上技术栈</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="na">5.</span><span class="w"> </span><span class="s">项目的内容需要强调算法、大模型这些技术，如果是之前做java的等其他方向的，需要缩减篇幅</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="na">6.</span><span class="w"> </span><span class="s">项目的背景需要合理， 需要是实时在在的需求，描述需要让人觉得这个项目做出来是有价值的而不是编造的</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="na">7.</span><span class="w"> </span><span class="s">项目中用到的技术点需要合理</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="na">8.</span><span class="w"> </span><span class="s">实习阶段避免写：精通、主导、负责等字眼，写参与、设计部分小的功能都可以</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="na">9.</span><span class="w"> </span><span class="s">项目周期需要合理，一般来讲一个小项目的开发需要控制在半年以内，如果超过半年，自己需要想清楚这么久的周期时间上是怎么安排的</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="na">10.</span><span class="w"> </span><span class="s">禁止出现: {{forbid_list}} 中的单词</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="na">11.</span><span class="w"> </span><span class="s">对于项目中的个人职责，除了实现项目以外，一般在公司还有技术调研、上线后的维护、迭代、优化等工作</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="na">12.</span><span class="w"> </span><span class="s">对于每个面试者，都提醒需要准备话术文档（逐字稿）</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="na">13.</span><span class="w"> </span><span class="s">对于项目中的成果数据，尤其是指标类的，如果有一些不好解释的，需要给用户提醒</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="na">14.</span><span class="w"> </span><span class="s">项目经历和上下文的内容不要有冲突</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="na">15.</span><span class="w"> </span><span class="s">技术栈的描述不要写太多</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="na">如果违反规则，则需要给用户列出需要修改的部分，以及违反了哪条规则。</span>
+</code></pre></div>
+<ul>
+<li>这里需要注意，<strong>10. 禁止出现: {{forbid_list}} 中的单词</strong>，这里作为违禁词判断的内容</li>
+</ul>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="na">项目经历</span><span class="o">:</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="na">{{project_exp}}</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="na">上下文：</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="na">{{context}}</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="na">当前时间：</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="na">{{date}}</span>
+</code></pre></div>
+<p>最终输出：</p>
+<p><img src="../img/image-20251029170610866.png" alt="image-20251029170610866" style="zoom:67%;" /></p>
+<p>需要注意：这里最终输出内容为json格式，以便循环后合成list后节省字符数（markdown会有很多格式部分）</p>
+<h4 id="62">6.2 项目重复度评估<a class="headerlink" href="#62" title="Permanent link">&para;</a></h4>
+<p>项目重复评估分为3个节点：</p>
+<ol>
+<li>简历内容query优化：基于简历内容进行优化，不使用整个项目的文本直接去查询知识库。（这里也可以使用大模型按句子进行拆分，然后再后面增加一个循环结构，按句子循环去查询知识库）</li>
+<li>简历模板检索：去简历模板库中匹配相似的内容</li>
+<li>简历重复度评估：基于简历模板检索出的结果，结合用户的项目内容进行对比，输出重复的部分的评估结果</li>
+</ol>
+<p><img src="../img/image-20251029170834881.png" alt="image-20251029170834881" style="zoom:67%;" /></p>
+<p>项目内容query优化：</p>
+<p><img src="../img/image-20251029172023560.png" alt="image-20251029172023560" style="zoom:67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="na">你是一个大模型和算法工程师简历审核大师，专门负责项目经历部分，能够根据输入的项目内容整合成更易查询的结构。</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="na">需要严格执行：</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="na">1.</span><span class="w"> </span><span class="s">基于输入的内容进行总结或者优化，不可以添加不存在、杜撰的内容。</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="na">2.</span><span class="w"> </span><span class="s">项目内容根据项目背景、技术点、业务流程、个人职责、优化点、成果数据进行排序，不存在的部分跳过即可。</span>
+</code></pre></div>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="na">项目内容：{{project_exp}}</span>
+</code></pre></div>
+<p>简历模板库检索：</p>
+<p><img src="../img/image-20251029172150416.png" alt="image-20251029172150416" style="zoom:67%;" /></p>
+<p>这里需要注意：</p>
+<ul>
+<li>召回数量给到20，让检索出来的内容更多，增加重复内容部分的召回率</li>
+<li>最小匹配度的阈值给到0.85，防止检索出来只是小部分内容相同的文档</li>
+<li>开启查询改写、结果重排，近一步提升检索效果</li>
+</ul>
+<p>简历重复度评估：</p>
+<p><img src="../img/image-20251029175528917.png" alt="image-20251029175528917" style="zoom:67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="na">你是一个大模型和算法工程师简历审核大师，专门负责项目经历部分，能够根据用户输入的项目内容和知识库中检索出来的内容进行对比，并提示用户重合的情况如何。</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="na">需要严格执行：</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="na">1.</span><span class="w"> </span><span class="s">对于雷同的表述，包括技术点、业务流程、个人职责、优化点、成果数据一致或基本相似的，认为是雷同部分</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="na">2.</span><span class="w"> </span><span class="s">输出内容的时候，需要做对比的部分需要给出哪些部分雷同</span>
+</code></pre></div>
+<p>用户提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="na">项目内容：</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="na">{{query}}</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="na">检索出来的内容：</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="na">{{context}}</span>
+</code></pre></div>
+<p>最后，把简历重复度评估和项目经历评估的结果做一个整合：</p>
+<p><img src="../img/image-20251029175711254.png" alt="image-20251029175711254" style="zoom:67%;" /></p>
+<h4 id="63">6.3 拓展：分治策略<a class="headerlink" href="#63" title="Permanent link">&para;</a></h4>
+<p>分治策略是一种通过将大规模问题分解为相互独立、结构相同的子问题进行求解的数学方法，其核心思想为“分而治之”。分为以下3个步骤：</p>
+<ol>
+<li>
+<p><strong>分解</strong>：将原始复杂问题拆分成若干个规模较小、更易解决的子问题。</p>
+</li>
+<li>
+<p><strong>解决</strong>：递归地或独立地解决这些子问题。</p>
+</li>
+<li>
+<p><strong>合并</strong>：将子问题的解综合起来，得到原始问题的解。</p>
+</li>
+</ol>
+<p>首先，对于我们简历修改模块整体来讲，就是分治策略的一种应用：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">步骤</th>
+<th style="text-align: left;">在简历评估工作流中的体现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>分解</strong></td>
+<td style="text-align: left;">将一份完整的简历分解为多个部分（如<strong>基本信息、工作经历、项目经验、技能清单、教育背景</strong>等）。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>解决</strong></td>
+<td style="text-align: left;">针对每个部分，设计专门的提示词或评估模块，交由大模型进行<strong>独立、精准的分析和提取</strong>。例如，专门用一个模块来深度挖掘工作经历中的职责和成果。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合并</strong></td>
+<td style="text-align: left;">将各个模块的分析结果（如提取出的技能点、项目亮点、工作年限等）<strong>汇总、综合</strong>，最终形成对这份简历的全面评估和打分。</td>
+</tr>
+</tbody>
+</table>
+<p>其次，对于“项目经历评估”这个部分，因为大模型一次性处理每个项目的评估，效果会大打折扣，在这里我们同样使用分治策略解决了这个问题。就是把项目整体拆分成多个项目，逐个评估后再把结果汇总。</p>
+<p>分治策略不仅体现在软件工程的落地上，也体现在生活中的各行各业中，比如公司的管理就是分治思想的体现：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">分治思想环节</th>
+<th style="text-align: left;">在公司部门管理中的具体体现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>分 (Divide)</strong></td>
+<td style="text-align: left;">将公司整体战略目标分解为各部门/团队的子目标；按职能（如研发、市场、销售）、产品线、地区等划分组织架构；根据员工专业能力分配任务。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>治 (Conquer)</strong></td>
+<td style="text-align: left;">各部门/团队在授权范围内，专注于解决自己的核心任务（如市场部负责品牌建设，技术部负责产品开发）；管理者得以深耕专业领域，提升效率。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合 (Integrate)</strong></td>
+<td style="text-align: left;">通过管理层会议、跨部门协作机制、统一的财务和信息系统等，确保各部门目标与公司整体战略对齐；将各部门的成果整合为公司的最终产品或服务。</td>
+</tr>
+</tbody>
+</table>
+<p>我们回到软件行业，除了我们这个章节的工作流以外，常见的算法比如：归并排序、快速排序、二分查找，以及大数据存储、大数据计算都是基于分治思想解决问题的思路。</p>
+<p>最后我们说一下，在这里给同学们拓展分治策略的目的，是为了告诉同学们，在搭建工作流解决一个业务问题的时候，要有”分解问题“和”逐个击破”的思想，因为目前的大模型的能力有限，让一个大模型实现一个超出自己能力范围的问题，就容易引发幻觉问题的产生。但是工作流可以添加无数个LLM节点，所以当幻觉出现时，我们第一时间可以去思考，是否可以通过分治策略解决。</p>
+<h3 id="7">7 个人评价评估<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<p>最后是个人评价评估，这个部分的内容是可选项，有很多应试者没有这部分的内容。接收变量：</p>
+<ul>
+<li>context：简历总结内容，作为参考</li>
+<li>self：个人评价</li>
+</ul>
+<p><img src="../img/image-20251029182520578.png" alt="image-20251029182520578" style="zoom:67%;" /></p>
+<p>系统提示词：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="na">你是一个大模型和算法工程师简历审核大师，专门负责个人评价和爱好部分，能够根据输入的个人评价和爱好部分基于规则，参考上下文，并判断是否有需要修改的部分。</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="na">注意：</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="na">1.</span><span class="w"> </span><span class="s">如果输入内容没有个人爱好和个人评价，这部分为空的，最后返回空就可以。不需要输出任何内容</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="na">规则，具有最高优先级，需要保证执行到位：</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="na">1.</span><span class="w"> </span><span class="s">个人爱好和评价篇幅不要过多，控制在4行以及以内</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="na">2.</span><span class="w"> </span><span class="s">个人爱好如果要写的话，写健身等能体现个人优秀品质，比如坚持、身体好等，不要写王者荣耀这类容易留下坏印象的</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="na">3.</span><span class="w"> </span><span class="s">不要和上下文有冲突</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="na">如果违反规则，则需要给用户列出需要修改的部分，</span><span class="w"> </span><span class="s">你也可以提出一些建议，但是为了减少，最终返回的格式：</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="na">需要修改：需要修改的部分以及怎么修改，需要附带简历原文</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="na">参考建议：其他参考建议，这里只能是给项个人评价和爱好部分的修改建议，控制在3条以内，不得超过需要修改的部分。</span>
+</code></pre></div>
+<p>用户提示词：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="na">个人评价和爱好：</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="na">{{self}}</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="na">上下文：</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="na">{{context}}</span>
+</code></pre></div></p>
+<h2 id="_5">五、实现评估结果整合<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>这个节点需要接收以下内容作为输入：</p>
+<ul>
+<li>工作经历评估结果</li>
+<li>个人信息评估结果</li>
+<li>项目经验评估结果</li>
+<li>自我评价评估结果</li>
+<li>技能苹果结果</li>
+<li>学历信息评估结果</li>
+</ul>
+<p>同时，为了追求整合的效果更优，我们这里使用豆包1.6深度思考模型</p>
+<p><img src="../img/image-20251029182810064.png" alt="image-20251029182810064" style="zoom:67%;" /></p>
+<h2 id="_6">六、工作流调试<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>工作流搭建好后，我们上传一份简历文件，并试运行工作流，最终节点输出如下(输出结果因简历不同以及模型的随机性， 我们这里只截取开头和结尾的部分，中间略)：</p>
+<p><img src="../img/image-20251106024658794.png" alt="image-20251106024658794" style="zoom:67%;" /></p>
+<p><img src="../img/image-20251106024724189.png" alt="image-20251106024724189" style="zoom:67%;" /></p>
+<p>在调试的过程中，运行日志如下：</p>
+<p><img src="../img/image-20251106025030773.png" alt="image-20251106025030773" style="zoom:67%;" /></p>
+<h2 id="_7">七、总结<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>在实际工作中，开发一个项目往往需要考虑项目收益，以及基于当前实现的不足的优化方向等。 </p>
+<ul>
+<li>
+<p>收益：项目的收益的衡量一定是来自于开发项目时的需求， 我们这个模块的需求是为了解决面试辅导中的人效问题，那么这个项目衡量收益，一定是围绕着人效的提升。 其他项目也是类似的，比如电商推荐项目是为了提升用户成交，可以使用GMV提升、渠道转化数等指标来衡量； 短视频推荐是为了提升用户的粘性，可以通过用户在线时长增加量等指标来衡量。</p>
+</li>
+<li>
+<p>这里有同学可能会纠结：推荐场景准确率是不是也是收益？ 这里需要跟同学们区分一下， 项目收益和你项目中最终达到的效果是两码事，我们这里提到的项目收益是指的项目在业务层面的收益， 而准确率这类指标是属于技术类的收益，它只能作为一个中间过程的指标。</p>
+</li>
+<li>
+<p>但是在一些纯技术类的项目中，准确率这类指标也是衡量项目收益的指标，比如项目本身就是做一个图片分类算法，客户要求准确率必须达到0.95以上才付费，这个时候准确率就是项目收益完全相关了。准确率就等价于项目的业务收益。</p>
+</li>
+<li>
+<p>优化方向：软件工程的开发往往需要基于目标在 时间、成本、质量上做一个取舍，投入成本和时间越高， 质量往往越好，但是成本和时间不是无限的，在实际工作中，我们需要基于可投入的成本和时间妥协。</p>
+</li>
+<li>
+<p>比如要求两周内实现一个聊天APP，成本3000元，这样的约束下，只能牺牲质量。</p>
+</li>
+<li>对于我们本次的项目也是一样，其实有很多优化点在开发的时候是可以做的，但是考虑到时间和成本，最终选择按照本次文档中的实现方式实现。 </li>
+<li>但是一个项目往往不是开发一个版本以后就再也不会迭代了，在项目上线后如果收益是正向的，往往后续还会继续迭代，所以我们在这里列出一些可优化项，如果有有人力（时间）和其他成本投入时，可以进行迭代。具体可参考下面的<strong>2 优化方向</strong> 部分。 </li>
+</ul>
+<p><img src="../img/image-20251029185132511.png" alt="image-20251029185132511" style="zoom:67%;" /></p>
+<p>本章节的内容是因为第一次学习项目，让同学们了解项目的收益衡量以及质量和成本之间的平衡等内容，后续模块将不再对这个部分的内容进行过多介绍。原理都是一致的。</p>
+<h3 id="1_2">1 项目收益<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>本模块作为面试助手智能体的第一个模块，也是最重要的功能，基于coze工作流实现了简历评估的功能，效果良好。在一定程度上提升了简历修改的效率，比如：</li>
+<li>提升学生修改简历的效率：在简历提交之前，学生可通过该功能解决简历中的小错误，减少提交至老师</li>
+<li>提高老师的效率：班主任和老师在批量收简历的时候可以批量运行，做一次卡点，问题较多的简历打回（批量运行模块我们后续课程会讲到），然后再进行人工审核，可聚焦于发现“高级错误”而非“低级错误”</li>
+<li>项目的收益可以从以下几个指标进行衡量：</li>
+<li>调用量：试点班级中，超过70%学生有过调用，平均每个学生调用1.7次。</li>
+<li>问题召回数：共召回问题240+，平均每个学生4个问题</li>
+<li>人力节省比：查看一遍简历的时间约20分钟，每次调用可节省老师20分钟时间，共节省老师人力4.25人/天。</li>
+</ul>
+<h3 id="2_2">2 优化方向<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>替换性能更优的模型：目前我们使用的都是豆包模型，可以选择使用qwen-max以及效果更好的其他模型。 （因为模型排名一直是动态变化的，我们在这里无法给一个最好的模型的选择，需要根据当下模型的排名以及经济性和业务需求选择一个合适的）</li>
+<li>简历查重优化：比如增加存储每个学生的简历，对比其他学生简历和当前学生简历查重等类似功能。 这个可以提升简历查重的效果，但是实现成本会比较高</li>
+<li>记录调用信息：存储调用过程中的各类信息，比如：项目背景、学历等各类信息，可以帮助教学人员看清楚简历各类信息的分布，有助于分析招聘市场和简历内容之间的gap、课程研发等</li>
+<li>替换OCR插件：豆包自带的OCR插件效果并没有那么好，对排版比较差或者表格数据的识别能力不足，在实际使用时，可能会导致一些简历识别错误。可以考虑替换更优的付费模型实现内容识别。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ©Copyright 2024 AITutorials.CN This website has been reviewed by the review agency. 京ICP备23006137号
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+    
+  </body>
+</html>
