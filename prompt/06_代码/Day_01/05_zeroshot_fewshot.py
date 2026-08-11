@@ -2,7 +2,7 @@ import os
 import dashscope
 dashscope.base_http_api_url = "https://dashscope.aliyuncs.com/api/v1"
 
-with open(r"C:\Users\关骁\Desktop\2026_深圳_就业班_大模型提示词_Coze\04_资料\Day01\补充资料\06_金龙鱼_兰世立事件观点打标.md", "r", encoding="utf-8") as f:
+with open(r"C:\Users\YuEth\Desktop\AI综合学习方案\技术路线\Machine-learning-learning\prompt\04_资料\Day01\补充资料\06_金龙鱼_兰世立事件观点打标.md", "r", encoding="utf-8") as f:
     system_prompt = f.read()
 
 messages = [
