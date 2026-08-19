@@ -48,6 +48,9 @@ is_answering = False  # 是否进入回复阶段
 
 print("\n" + "=" * 20 + "思考过程" + "=" * 20)
 
+# objct.__dict__ 输出对象的JSON格式
+# vars(completion)
+print(vars(completion))
 
 for chunk in completion:
     if not chunk.choices:
