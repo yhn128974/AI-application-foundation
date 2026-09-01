@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>白马商城 - 淘你喜欢</title>
+  <style>
+    /* ========== Reset & Base ========== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      min-width: 1190px;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul, li { list-style: none; }
+
+    /* ========== Top Bar ========== */
+    .top-bar {
+      background: #f2f2f2;
+      border-bottom: 1px solid #e5e5e5;
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      color: #666;
+    }
+    .top-bar .container {
+      width: 1190px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .top-bar a { color: #666; margin: 0 8px; transition: color 0.2s; }
+    .top-bar a:hover { color: #ff4400; }
+    .top-bar .separator { color: #ccc; margin: 0 2px; }
+
+    /* ========== Header ========== */
+    .header {
+      background: #fff;
+      padding: 15px 0;
+    }
+    .header .container {
+      width: 1190px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #ff4400, #ff6a00);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 900;
+      box-shadow: 0 4px 12px rgba(255, 68, 0, 0.3);
+    }
+    .logo-text {
+      font-size: 28px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ff4400, #ff6a00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .logo-sub { font-size: 11px; color: #999; margin-top: -2px; }
+
+    /* Search */
+    .search-box {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      max-width: 600px;
+      margin: 0 40px;
+    }
+    .search-box input {
+      flex: 1;
+      height: 40px;
+      border: 3px solid #ff4400;
+      border-right: none;
+      border-radius: 20px 0 0 20px;
+      padding: 0 16px;
+      font-size: 14px;
+      outline: none;
+      transition: box-shadow 0.3s;
+    }
+    .search-box input:focus {
+      box-shadow: 0 0 0 3px rgba(255, 68, 0, 0.15);
+    }
+    .search-btn {
+      width: 80px;
+      height: 40px;
+      background: linear-gradient(135deg, #ff4400, #ff6a00);
+      border: none;
+      border-radius: 0 20px 20px 0;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      font-weight: bold;
+    }
+    .search-btn:hover { opacity: 0.9; }
+
+    .hot-words { margin-top: 6px; font-size: 12px; color: #999; }
+    .hot-words a { margin-right: 12px; color: #666; }
+    .hot-words a:hover { color: #ff4400; }
+    .hot-words a.hot { color: #ff4400; font-weight: bold; }
+
+    /* Cart */
+    .cart-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 20px;
+      border: 2px solid #ff4400;
+      border-radius: 20px;
+      color: #ff4400;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .cart-btn:hover { background: #ff4400; color: #fff; }
+    .cart-badge {
+      position: absolute;
+      top: -6px; right: -6px;
+      background: #ff0036;
+      color: #fff;
+      font-size: 11px;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    /* ========== Main Nav ========== */
+    .main-nav {
+      background: linear-gradient(135deg, #ff4400, #ff6a00);
+      height: 42px;
+      box-shadow: 0 2px 8px rgba(255, 68, 0, 0.2);
+    }
+    .main-nav .container {
+      width: 1190px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+    .all-categories {
+      width: 210px;
+      height: 100%;
+      background: rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+    .all-categories:hover { background: rgba(0,0,0,0.2); }
+    .nav-links { display: flex; align-items: center; flex: 1; padding-left: 10px; }
+    .nav-links a {
+      color: #fff;
+      font-size: 14px;
+      padding: 0 16px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,0.15); }
+
+    /* ========== Banner Section ========== */
+    .banner-section {
+      width: 1190px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      margin-top: 10px;
+    }
+
+    /* Category Sidebar */
+    .category-sidebar {
+      width: 210px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 0 0 0 8px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 10;
+    }
+    .category-item {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.15s;
+      gap: 8px;
+      justify-content: space-between;
+    }
+    .category-item:hover {
+      background: rgba(255,255,255,0.12);
+    }
+    .category-item .cat-icon { font-size: 15px; margin-right: 4px; }
+    .category-item .arrow { font-size: 10px; opacity: 0.5; }
+
+    /* Carousel */
+    .carousel-wrap {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0 8px 8px 0;
+      height: 408px;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      height: 100%;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .carousel-slide .slide-gradient {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .carousel-slide .slide-gradient .promo-tag {
+      background: rgba(255,255,255,0.2);
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 12px;
+      backdrop-filter: blur(4px);
+    }
+    .carousel-slide .slide-gradient .promo-title {
+      font-size: 36px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 60px;
+      background: rgba(0,0,0,0.25);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s, background 0.2s;
+      z-index: 5;
+      border: none;
+    }
+    .carousel-wrap:hover .carousel-btn { opacity: 1; }
+    .carousel-btn:hover { background: rgba(0,0,0,0.5); }
+    .carousel-btn.prev { left: 0; border-radius: 0 4px 4px 0; }
+    .carousel-btn.next { right: 0; border-radius: 4px 0 0 4px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 16px;
+      right: 20px;
+      display: flex;
+      gap: 8px;
+      z-index: 5;
+    }
+    .carousel-dots span {
+      width: 20px;
+      height: 4px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .carousel-dots span.active {
+      width: 30px;
+      background: #fff;
+    }
+
+    /* ========== Quick Icons ========== */
+    .quick-icons {
+      width: 1190px;
+      margin: 14px auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-around;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .quick-icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .quick-icon-item:hover { transform: translateY(-4px); }
+    .qi-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 8px;
+      transition: box-shadow 0.3s;
+    }
+    .quick-icon-item:hover .qi-circle {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .qi-label { font-size: 12px; color: #666; }
+
+    /* ========== Section Titles ========== */
+    .section-title {
+      width: 1190px;
+      margin: 0 auto;
+      padding: 24px 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .section-title h2 {
+      font-size: 22px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title h2 .emoji { font-size: 26px; }
+    .section-title .more-link {
+      font-size: 13px;
+      color: #999;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .section-title .more-link:hover { color: #ff4400; }
+
+    /* ========== Flash Sale ========== */
+    .flash-sale {
+      width: 1190px;
+      margin: 0 auto 14px;
+      background: linear-gradient(135deg, #fff5f5, #fff);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .flash-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .flash-header .left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .flash-header h3 {
+      font-size: 20px;
+      color: #ff2200;
+      font-weight: 900;
+    }
+    .flash-timer {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      color: #999;
+    }
+    .flash-timer .time-block {
+      background: #333;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .flash-products {
+      display: flex;
+      gap: 12px;
+      overflow: hidden;
+    }
+    .flash-item {
+      flex: 1;
+      min-width: 0;
+      background: #fff;
+      border-radius: 10px;
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 1px solid transparent;
+    }
+    .flash-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      border-color: #ff4400;
+    }
+    .flash-img {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .flash-item .price {
+      color: #ff2200;
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .flash-item .price .unit { font-size: 12px; }
+    .flash-item .original {
+      font-size: 12px;
+      color: #ccc;
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+    .flash-item .progress-bar {
+      width: 100%;
+      height: 16px;
+      background: #ffe0d6;
+      border-radius: 8px;
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    .flash-item .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff4400, #ff6a00);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #fff;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    /* ========== Product Grid ========== */
+    .product-grid {
+      width: 1190px;
+      margin: 0 auto 20px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 1px solid transparent;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      border-color: #ff4400;
+    }
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      position: relative;
+    }
+    .product-img .tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: linear-gradient(135deg, #ff4400, #ff6a00);
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .product-info {
+      padding: 12px;
+    }
+    .product-name {
+      font-size: 13px;
+      color: #333;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .product-name .shop-tag {
+      display: inline-block;
+      background: #ff4400;
+      color: #fff;
+      font-size: 10px;
+      padding: 1px 4px;
+      border-radius: 3px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .product-price {
+      color: #ff2200;
+      font-size: 20px;
+      font-weight: 900;
+    }
+    .product-price .unit { font-size: 12px; }
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+    .product-sales { font-size: 12px; color: #999; }
+    .product-location { font-size: 11px; color: #bbb; }
+
+    /* ========== Live Section ========== */
+    .live-section {
+      width: 1190px;
+      margin: 0 auto 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .live-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .live-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .live-cover {
+      width: 100%;
+      aspect-ratio: 16/10;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 12px;
+    }
+    .live-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ff2200;
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: bold;
+      animation: livePulse 2s infinite;
+    }
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .live-viewers {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+    }
+    .live-title-bar {
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+      width: 100%;
+    }
+    .live-info { padding: 10px 12px; }
+    .live-info .host { font-size: 13px; font-weight: bold; color: #333; }
+    .live-info .desc { font-size: 12px; color: #999; margin-top: 4px; }
+
+    /* ========== Footer ========== */
+    .footer {
+      background: #2c2c2c;
+      color: #999;
+      margin-top: 40px;
+    }
+    .footer-top {
+      width: 1190px;
+      margin: 0 auto;
+      padding: 40px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .footer-col h4 { color: #fff; font-size: 14px; margin-bottom: 16px; }
+    .footer-col a {
+      display: block;
+      font-size: 12px;
+      color: #999;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #ff4400; }
+    .footer-bottom {
+      border-top: 1px solid #444;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* ========== Back to Top ========== */
+    .back-top {
+      position: fixed;
+      right: 20px;
+      bottom: 60px;
+      width: 44px;
+      height: 44px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: all 0.3s;
+      font-size: 20px;
+      z-index: 100;
+    }
+    .back-top.show { opacity: 1; }
+    .back-top:hover { background: #ff4400; color: #fff; transform: scale(1.1); }
+
+    /* ========== Animations ========== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in {
+      animation: fadeInUp 0.5s ease-out forwards;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ====== Top Bar ====== -->
+<div class="top-bar">
+  <div class="container">
+    <div>
+      <a href="#">你好，请登录</a>
+      <a href="#" style="color:#ff4400;">免费注册</a>
+      <span class="separator">|</span>
+      <a href="#">手机逛白马</a>
+    </div>
+    <div>
+      <a href="#">我的白马</a>
+      <span class="separator">|</span>
+      <a href="#">我的订单</a>
+      <span class="separator">|</span>
+      <a href="#">我的购物车</a>
+      <span class="separator">|</span>
+      <a href="#">收藏夹</a>
+      <span class="separator">|</span>
+      <a href="#">商家中心</a>
+      <span class="separator">|</span>
+      <a href="#">联系客服</a>
+      <span class="separator">|</span>
+      <a href="#">网站导航 ▾</a>
+    </div>
+  </div>
+</div>
+
+<!-- ====== Header ====== -->
+<div class="header">
+  <div class="container">
+    <div class="logo">
+      <div class="logo-icon">白</div>
+      <div>
+        <div class="logo-text">白马商城</div>
+        <div class="logo-sub">让天下没有难买的好物</div>
+      </div>
+    </div>
+    <div style="flex:1;max-width:600px;margin:0 40px;">
+      <div class="search-box">
+        <input type="text" placeholder="搜索你想要的商品..." id="searchInput">
+        <button class="search-btn">搜索</button>
+      </div>
+      <div class="hot-words">
+        <a href="#" class="hot">🔥 夏季清凉节</a>
+        <a href="#">无线耳机</a>
+        <a href="#">防晒霜</a>
+        <a href="#">机械键盘</a>
+        <a href="#">连衣裙</a>
+        <a href="#">智能手表</a>
+      </div>
+    </div>
+    <div class="cart-btn">
+      🛒 购物车
+      <span class="cart-badge">3</span>
+    </div>
+  </div>
+</div>
+
+<!-- ====== Main Nav ====== -->
+<nav class="main-nav">
+  <div class="container">
+    <div class="all-categories">☰ 全部商品分类</div>
+    <div class="nav-links">
+      <a href="#">首页</a>
+      <a href="#">天猫精选</a>
+      <a href="#">今日爆款</a>
+      <a href="#">每日好店</a>
+      <a href="#">品牌闪购</a>
+      <a href="#">拍卖</a>
+      <a href="#">超市</a>
+      <a href="#">充值中心</a>
+      <a href="#">白马直播</a>
+      <a href="#">会员专享</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ====== Banner + Category ====== -->
+<div class="banner-section">
+  <!-- Category Sidebar -->
+  <div class="category-sidebar">
+    <div class="category-item"><span><span class="cat-icon">👚</span> 女装 / 男装 / 内衣</span><span class="arrow">›</span></div>
+    <div class="category-item"><span><span class="cat-icon">👟</span> 鞋靴 / 箱包 / 配件</span><span class="arrow">›</span></div>
+    <div class="category-item"><span><span class="cat-icon">👶</span> 童装 / 母婴 / 玩具</span><span class="arrow">›</span></div>
+    <div class="category-item"><span><span class="cat-icon">🥤</span> 食品 / 生鲜 / 零食</span><span class="arrow">›</span></div>
+    <div class="category-item"><span><span class="cat-icon">💄</span> 美妆 / 个护 / 清洁</span><span class="arrow">›</span></div>
+    <div class="category-item"><span><span class="cat-icon">📱</span> 手机 / 数码 / 电脑</span><span class="arrow">›</span></div>
+    <div class="category-item"><span><span class="cat-icon">🏠</span> 家电 / 家具 / 家装</span><span class="arrow">›</span></div>
+    <div class="category-item"><span><span class="cat-icon">🍳</span> 厨具 / 百货 / 日用</span><span class="arrow">›</span></div>
+    <div class="category-item"><span><span class="cat-icon">📖</span> 图书 / 文具 / 乐器</span><span class="arrow">›</span></div>
+    <div class="category-item"><span><span class="cat-icon">⚽</span> 运动 / 户外 / 骑行</span><span class="arrow">›</span></div>
+    <div class="category-item"><span><span class="cat-icon">🚗</span> 汽车 / 摩托 / 配件</span><span class="arrow">›</span></div>
+    <div class="category-item"><span><span class="cat-icon">💊</span> 医药 / 保健 / 养生</span><span class="arrow">›</span></div>
+  </div>
+
+  <!-- Carousel -->
+  <div class="carousel-wrap" id="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide">
+        <img src="images/banner1.jpg" alt="数码专场" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#ff6a00,#ee0979)'">
+        <div class="slide-gradient" style="position:absolute;top:0;left:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;flex-direction:column;">
+          <span class="promo-tag">限时特惠</span>
+          <span class="promo-title">数码狂欢季</span>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="images/banner2.jpg" alt="时尚专场" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f857a6,#ff5858)'">
+        <div class="slide-gradient" style="position:absolute;top:0;left:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;flex-direction:column;">
+          <span class="promo-tag">夏日特卖</span>
+          <span class="promo-title">潮流穿搭</span>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="images/banner3.jpg" alt="家电专场" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#4facfe,#00f2fe)'">
+        <div class="slide-gradient" style="position:absolute;top:0;left:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;flex-direction:column;">
+          <span class="promo-tag">品质生活</span>
+          <span class="promo-title">家电焕新</span>
+        </div>
+      </div>
+      <div class="carousel-slide" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);">
+        <div class="slide-gradient" style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
+          <span class="promo-tag">白马会员日</span>
+          <span class="promo-title">全场5折起</span>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+    <div class="carousel-dots" id="carouselDots">
+      <span class="active" onclick="goSlide(0)"></span>
+      <span onclick="goSlide(1)"></span>
+      <span onclick="goSlide(2)"></span>
+      <span onclick="goSlide(3)"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ====== Quick Icons ====== -->
+<div class="quick-icons">
+  <div class="quick-icon-item">
+    <div class="qi-circle" style="background:linear-gradient(135deg,#ff6a00,#ee0979);">⚡</div>
+    <span class="qi-label">限时秒杀</span>
+  </div>
+  <div class="quick-icon-item">
+    <div class="qi-circle" style="background:linear-gradient(135deg,#f857a6,#ff5858);">🏷️</div>
+    <span class="qi-label">领优惠券</span>
+  </div>
+  <div class="quick-icon-item">
+    <div class="qi-circle" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">💰</div>
+    <span class="qi-label">充值中心</span>
+  </div>
+  <div class="quick-icon-item">
+    <div class="qi-circle" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">🎁</div>
+    <span class="qi-label">每日签到</span>
+  </div>
+  <div class="quick-icon-item">
+    <div class="qi-circle" style="background:linear-gradient(135deg,#fa709a,#fee140);">📺</div>
+    <span class="qi-label">白马直播</span>
+  </div>
+  <div class="quick-icon-item">
+    <div class="qi-circle" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">🏬</div>
+    <span class="qi-label">品牌特卖</span>
+  </div>
+  <div class="quick-icon-item">
+    <div class="qi-circle" style="background:linear-gradient(135deg,#ffecd2,#fcb69f);">🌍</div>
+    <span class="qi-label">国际购</span>
+  </div>
+  <div class="quick-icon-item">
+    <div class="qi-circle" style="background:linear-gradient(135deg,#89f7fe,#66a6ff);">🔄</div>
+    <span class="qi-label">分期免息</span>
+  </div>
+  <div class="quick-icon-item">
+    <div class="qi-circle" style="background:linear-gradient(135deg,#fddb92,#d1fdff);">🎯</div>
+    <span class="qi-label">超值拼团</span>
+  </div>
+  <div class="quick-icon-item">
+    <div class="qi-circle" style="background:linear-gradient(135deg,#c1dfc4,#deecdd);">📦</div>
+    <span class="qi-label">白马超市</span>
+  </div>
+</div>
+
+<!-- ====== Flash Sale ====== -->
+<div class="section-title">
+  <h2><span class="emoji">⚡</span> 限时秒杀</h2>
+  <a href="#" class="more-link">更多秒杀 ›</a>
+</div>
+<div class="flash-sale">
+  <div class="flash-header">
+    <div class="left">
+      <h3>🔥 正在疯抢</h3>
+      <div class="flash-timer">
+        距结束 <span class="time-block" id="hour">02</span>:
+        <span class="time-block" id="minute">36</span>:
+        <span class="time-block" id="second">18</span>
+      </div>
+    </div>
+    <a href="#" class="more-link">更多 ›</a>
+  </div>
+  <div class="flash-products">
+    <div class="flash-item">
+      <div class="flash-img" style="background:linear-gradient(135deg,#667eea,#764ba2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:48px;">📱</div>
+      <div class="price"><span class="unit">¥</span>1299<span class="original">¥2599</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:85%;">已抢85%</div></div>
+    </div>
+    <div class="flash-item">
+      <div class="flash-img" style="background:linear-gradient(135deg,#f093fb,#f5576c);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:48px;">👗</div>
+      <div class="price"><span class="unit">¥</span>89<span class="original">¥299</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:72%;">已抢72%</div></div>
+    </div>
+    <div class="flash-item">
+      <div class="flash-img" style="background:linear-gradient(135deg,#4facfe,#00f2fe);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:48px;">🎧</div>
+      <div class="price"><span class="unit">¥</span>199<span class="original">¥599</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:60%;">已抢60%</div></div>
+    </div>
+    <div class="flash-item">
+      <div class="flash-img" style="background:linear-gradient(135deg,#43e97b,#38f9d7);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:48px;">⌚</div>
+      <div class="price"><span class="unit">¥</span>699<span class="original">¥1499</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:45%;">已抢45%</div></div>
+    </div>
+    <div class="flash-item">
+      <div class="flash-img" style="background:linear-gradient(135deg,#ffecd2,#fcb69f);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:48px;">💄</div>
+      <div class="price"><span class="unit">¥</span>59<span class="original">¥199</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:91%;">已抢91%</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== Live Section ====== -->
+<div class="section-title">
+  <h2><span class="emoji">📺</span> 白马直播</h2>
+  <a href="#" class="more-link">更多直播 ›</a>
+</div>
+<div class="live-section">
+  <div class="live-card">
+    <div class="live-cover" style="background:linear-gradient(135deg,#ff9a9e,#fecfef);">
+      <span class="live-badge">● LIVE</span>
+      <span class="live-viewers">👁 12.6万</span>
+      <div class="live-title-bar">今晚的福利太炸了！速来</div>
+    </div>
+    <div class="live-info">
+      <div class="host">美妆达人小蜜</div>
+      <div class="desc">大牌美妆 1折起</div>
+    </div>
+  </div>
+  <div class="live-card">
+    <div class="live-cover" style="background:linear-gradient(135deg,#a1c4fd,#c2e9fb);">
+      <span class="live-badge">● LIVE</span>
+      <span class="live-viewers">👁 8.3万</span>
+      <div class="live-title-bar">数码好物开箱评测</div>
+    </div>
+    <div class="live-info">
+      <div class="host">科技测评阿杰</div>
+      <div class="desc">旗舰手机深度体验</div>
+    </div>
+  </div>
+  <div class="live-card">
+    <div class="live-cover" style="background:linear-gradient(135deg,#d4fc79,#96e6a1);">
+      <span class="live-badge">● LIVE</span>
+      <span class="live-viewers">👁 5.1万</span>
+      <div class="live-title-bar">产地直播 新鲜水果到家</div>
+    </div>
+    <div class="live-info">
+      <div class="host">果园老板娘</div>
+      <div class="desc">应季水果 包邮到家</div>
+    </div>
+  </div>
+  <div class="live-card">
+    <div class="live-cover" style="background:linear-gradient(135deg,#fbc2eb,#a6c1ee);">
+      <span class="live-badge">● LIVE</span>
+      <span class="live-viewers">👁 3.7万</span>
+      <div class="live-title-bar">夏季穿搭不重样</div>
+    </div>
+    <div class="live-info">
+      <div class="host">时尚穿搭Lisa</div>
+      <div class="desc">百元打造高级感</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== Recommended Products ====== -->
+<div class="section-title">
+  <h2><span class="emoji">💎</span> 猜你喜欢</h2>
+  <a href="#" class="more-link">换一换 🔄</a>
+</div>
+<div class="product-grid" id="productGrid">
+  <!-- Row 1 -->
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#e0e5ec,#f5f7fa);">
+      <span>📱</span>
+      <span class="tag">新品</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">天猫</span>2026新款旗舰智能手机 5G全网通 超感影像系统</div>
+      <div class="product-price"><span class="unit">¥</span>3999</div>
+      <div class="product-meta"><span class="product-sales">月销 2.6万</span><span class="product-location">广东深圳</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#ffecd2,#fcb69f);">
+      <span>👟</span>
+      <span class="tag">爆款</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">白马</span>夏季新款透气飞织运动鞋 男女同款 轻便跑步鞋</div>
+      <div class="product-price"><span class="unit">¥</span>159</div>
+      <div class="product-meta"><span class="product-sales">月销 5.8万</span><span class="product-location">福建莆田</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#fbc2eb,#a6c1ee);">
+      <span>👗</span>
+      <span class="tag">热销</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">天猫</span>法式碎花连衣裙女 2026夏季新款 高腰显瘦 气质优雅</div>
+      <div class="product-price"><span class="unit">¥</span>128</div>
+      <div class="product-meta"><span class="product-sales">月销 3.2万</span><span class="product-location">浙江杭州</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#667eea,#764ba2);">
+      <span>🎧</span>
+      <span class="tag">好评</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">白马</span>无线蓝牙耳机 主动降噪 Hi-Res认证 长续航头戴式</div>
+      <div class="product-price"><span class="unit">¥</span>349</div>
+      <div class="product-meta"><span class="product-sales">月销 1.8万</span><span class="product-location">广东东莞</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
+      <span>💄</span>
+      <span class="tag">直播</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">天猫</span>护肤套装 水乳精华面霜 补水保湿 滋润修护礼盒</div>
+      <div class="product-price"><span class="unit">¥</span>269</div>
+      <div class="product-meta"><span class="product-sales">月销 4.5万</span><span class="product-location">上海</span></div>
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">
+      <span>⌚</span>
+      <span class="tag">新品</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">天猫</span>智能手表 健康监测 NFC支付 100+运动模式 超长续航</div>
+      <div class="product-price"><span class="unit">¥</span>899</div>
+      <div class="product-meta"><span class="product-sales">月销 9800</span><span class="product-location">广东深圳</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#fa709a,#fee140);">
+      <span>👜</span>
+      <span class="tag">优惠</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">白马</span>真皮女包 斜挎单肩包 2026新款 时尚百搭小方包</div>
+      <div class="product-price"><span class="unit">¥</span>239</div>
+      <div class="product-meta"><span class="product-sales">月销 1.2万</span><span class="product-location">广东广州</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#89f7fe,#66a6ff);">
+      <span>🧴</span>
+      <span class="tag">爆款</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">天猫</span>防晒喷雾 SPF50+ 清爽不油腻 户外军训必备 大瓶装</div>
+      <div class="product-price"><span class="unit">¥</span>49</div>
+      <div class="product-meta"><span class="product-sales">月销 8.6万</span><span class="product-location">上海</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">
+      <span>⌨️</span>
+      <span class="tag">精选</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">白马</span>机械键盘 RGB背光 热插拔 客制化 电竞游戏办公键盘</div>
+      <div class="product-price"><span class="unit">¥</span>199</div>
+      <div class="product-meta"><span class="product-sales">月销 2.1万</span><span class="product-location">广东深圳</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#fddb92,#d1fdff);">
+      <span>🧸</span>
+      <span class="tag">好评</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">天猫</span>毛绒玩偶 可爱卡通公仔 柔软抱枕 送女朋友生日礼物</div>
+      <div class="product-price"><span class="unit">¥</span>39</div>
+      <div class="product-meta"><span class="product-sales">月销 6.3万</span><span class="product-location">浙江义乌</span></div>
+    </div>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#ff9a9e,#fecfef);">
+      <span>🩴</span>
+      <span class="tag">夏日</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">白马</span>夏季凉拖鞋 EVA厚底防滑 居家浴室外穿两用 情侣款</div>
+      <div class="product-price"><span class="unit">¥</span>19.9</div>
+      <div class="product-meta"><span class="product-sales">月销 12万</span><span class="product-location">福建晋江</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#c1dfc4,#deecdd);">
+      <span>🏕️</span>
+      <span class="tag">户外</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">天猫</span>户外折叠椅 便携露营椅 超轻铝合金 沙滩钓鱼休闲椅</div>
+      <div class="product-price"><span class="unit">¥</span>79</div>
+      <div class="product-meta"><span class="product-sales">月销 3.4万</span><span class="product-location">浙江金华</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#f5af19,#f12711);">
+      <span>☕</span>
+      <span class="tag">限时</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">白马</span>意式胶囊咖啡机 家用全自动 小型迷你 15bar萃取</div>
+      <div class="product-price"><span class="unit">¥</span>599</div>
+      <div class="product-meta"><span class="product-sales">月销 7800</span><span class="product-location">广东佛山</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#e8cbc0,#636fa4);">
+      <span>🕶️</span>
+      <span class="tag">时尚</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">天猫</span>偏光太阳镜 男女通用 开车专用 防紫外线 潮流墨镜</div>
+      <div class="product-price"><span class="unit">¥</span>68</div>
+      <div class="product-meta"><span class="product-sales">月销 4.1万</span><span class="product-location">浙江温州</span></div>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background:linear-gradient(135deg,#30cfd0,#330867);">
+      <span>🎮</span>
+      <span class="tag">热卖</span>
+    </div>
+    <div class="product-info">
+      <div class="product-name"><span class="shop-tag">白马</span>无线游戏手柄 蓝牙连接 多平台兼容 电竞振动反馈</div>
+      <div class="product-price"><span class="unit">¥</span>129</div>
+      <div class="product-meta"><span class="product-sales">月销 1.5万</span><span class="product-location">广东深圳</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== Footer ====== -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <h4>购物指南</h4>
+      <a href="#">购物流程</a>
+      <a href="#">会员介绍</a>
+      <a href="#">常见问题</a>
+      <a href="#">联系客服</a>
+    </div>
+    <div class="footer-col">
+      <h4>配送方式</h4>
+      <a href="#">上门自提</a>
+      <a href="#">配送服务查询</a>
+      <a href="#">配送费收取标准</a>
+      <a href="#">海外配送</a>
+    </div>
+    <div class="footer-col">
+      <h4>支付方式</h4>
+      <a href="#">货到付款</a>
+      <a href="#">在线支付</a>
+      <a href="#">分期付款</a>
+      <a href="#">白马白条</a>
+    </div>
+    <div class="footer-col">
+      <h4>售后服务</h4>
+      <a href="#">退换货政策</a>
+      <a href="#">退换货流程</a>
+      <a href="#">价格保护</a>
+      <a href="#">退款说明</a>
+    </div>
+    <div class="footer-col">
+      <h4>关于我们</h4>
+      <a href="#">白马商城介绍</a>
+      <a href="#">加入我们</a>
+      <a href="#">商家入驻</a>
+      <a href="#">媒体合作</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 白马商城 BaimaShop.com 版权所有 | 增值电信业务经营许可证 | 营业执照</p>
+    <p style="margin-top:4px;">本站内容仅供学习参考，非真实商城</p>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<div class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</div>
+
+<script>
+  // ====== Carousel ======
+  let currentSlide = 0;
+  const track = document.getElementById('carouselTrack');
+  const dots = document.querySelectorAll('#carouselDots span');
+  const totalSlides = dots.length;
+
+  function goSlide(n) {
+    currentSlide = n;
+    track.style.transform = `translateX(-${n * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === n));
+  }
+
+  function moveSlide(dir) {
+    currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+    goSlide(currentSlide);
+  }
+
+  // Auto play
+  let autoPlay = setInterval(() => moveSlide(1), 4000);
+  document.getElementById('carousel').addEventListener('mouseenter', () => clearInterval(autoPlay));
+  document.getElementById('carousel').addEventListener('mouseleave', () => {
+    autoPlay = setInterval(() => moveSlide(1), 4000);
+  });
+
+  // ====== Flash Sale Timer ======
+  let totalSeconds = 2 * 3600 + 36 * 60 + 18;
+  function updateTimer() {
+    if (totalSeconds <= 0) return;
+    totalSeconds--;
+    const h = Math.floor(totalSeconds / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+    document.getElementById('hour').textContent = String(h).padStart(2, '0');
+    document.getElementById('minute').textContent = String(m).padStart(2, '0');
+    document.getElementById('second').textContent = String(s).padStart(2, '0');
+  }
+  setInterval(updateTimer, 1000);
+
+  // ====== Back to Top ======
+  window.addEventListener('scroll', () => {
+    document.getElementById('backTop').classList.toggle('show', window.scrollY > 400);
+  });
+
+  // ====== Scroll Animation ======
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.product-card, .live-card, .flash-item').forEach(el => {
+    el.style.opacity = '0';
+    observer.observe(el);
+  });
+</script>
+<script>
+ window.difyChatbotConfig = {
+  token: 'aXOG3ZRKrlCpvy7E',
+  baseUrl: 'http://localhost:8080',
+  inputs: {
+    // You can define the inputs from the Start node here
+    // key is the variable name
+    // e.g.
+    // name: "NAME"
+  },
+  systemVariables: {
+    // user_id: 'YOU CAN DEFINE USER ID HERE',
+    // conversation_id: 'YOU CAN DEFINE CONVERSATION ID HERE, IT MUST BE A VALID UUID',
+  },
+  userVariables: {
+    // avatar_url: 'YOU CAN DEFINE USER AVATAR URL HERE',
+    // name: 'YOU CAN DEFINE USER NAME HERE',
+  },
+ }
+</script>
+<script
+ src="http://localhost:8080/embed.min.js"
+ id="aXOG3ZRKrlCpvy7E"
+ defer>
+</script>
+<style>
+  #dify-chatbot-bubble-button {
+    background-color: #1C64F2 !important;
+  }
+  #dify-chatbot-bubble-window {
+    width: 24rem !important;
+    height: 40rem !important;
+  }
+</style>
+</body>
+</html>

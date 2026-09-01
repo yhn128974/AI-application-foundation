@@ -1,4 +1,5 @@
 {
-    "python.analysis.autoImportCompletions": true,
-    "python.REPL.enableREPLSmartSend": false
+  "python.analysis.autoImportCompletions": true,
+  "python.REPL.enableREPLSmartSend": false,
+  "files.autoSave": "onWindowChange"
 }
