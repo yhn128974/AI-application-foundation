@@ -10,6 +10,11 @@ new_train_x=mms.fit_transform(train_x)
 new_test_x=mms.transform(test_x)
 print(new_train_x)
 print(new_test_x)
+
 # 标准化和归一化的区别：
 # 标准化：把数据转换成均值为0，方差为1的分布（减去均值除以标准差）
 # 归一化：把数据转换成0到1之间的分布（减去最小值除以最大值减去最小值）
+
+# 标准化的应用场景：
+# 1.在数据量比较小的时候，可以使用标准化
+# 2.在数据量比较大的时候，可以使用归一化
