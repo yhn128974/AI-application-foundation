@@ -18,7 +18,7 @@ def dm01_模型欠拟合():
     estimator = LinearRegression()
 
     # 3 训练模型
-    # x.reshape(-1, 1) 就是将一维的数据转换成符合 sklearn 规范的二维单特征矩阵，  -1表示自动计算行数，1表示只有1列
+    # x.reshape(行数, 列数) 就是将一维的数据转换成符合 sklearn 规范的二维单特征矩阵，  -1表示自动计算行数，1表示只有1列
     X = x.reshape(-1, 1)
     estimator.fit(X, y)
 
@@ -42,26 +42,32 @@ def dm02_模型ok():
     # 1 准备数据x y(增加上噪声)
     np.random.seed(666)
     x = np.random.uniform(-3, 3, size=100)
+    # 这里的噪声是为了模拟真实数据中不可预测的随机波动
     y = 0.5 * x ** 2 + x + 2 + np.random.normal(0, 1, size=100)
     # 2 实例化线性回归模型
-    estimator = LinearRegression()
+    model = LinearRegression()
 
     # 3 训练模型
     X = x.reshape(-1, 1)
-    # print(‘X.shape-->’, X.shape)
+    print('X.shape-->', X.shape)
+    # np.hstack（水平拼接 / horizontal stack）：将这两列按水平方向拼在一起，得到形状为 (100, 2) 的新矩阵 X2
     X2 = np.hstack([X, X ** 2]) # 数据增加二次项
-    estimator.fit(X2, y)
+    print('X2.shape-->', X2.shape)
+    model.fit(X2, y)
 
     # 4 模型预测
-    y_predict = estimator.predict(X2)
-    # 5 计算均方误差
-    myret = mean_squared_error(y, y_predict)
-    print('myret-->', myret)
+    y_predict = model.predict(X2)
+    print('y_predict-->', y_predict)
 
- # 6 画图
+    # 5 计算均方误差
+    mse = mean_squared_error(y, y_predict)
+    print('mse-->', mse)
+
+    # 6 画图
     plt.scatter(x, y)
     # plt.plot(x, y_predict, color=‘r’)
     # 画图plot折线图时 需要对x进行排序, 取x排序后对应的y值
+    # np.argsort(x)是返回x排序后的索引值，然后根据索引值取y_predict对应的y值
     plt.plot(np.sort(x), y_predict[np.argsort(x)], color='r')
     plt.show()
 
@@ -91,8 +97,9 @@ def dm03_模型过拟合():
     plt.scatter(x, y)
     # plt.plot(x, y_predict, color=‘r’)
     # 画图时输入的x数据: 要求是从小到大
+    # np.argsort(x) 返回 x 排序后的索引值，然后根据索引值取 y_predict 对应的 y 值
     plt.plot(np.sort(x), y_predict[np.argsort(x)], color='r')
     plt.show() 
 
 if __name__ == '__main__':
-   dm01_模型欠拟合()
+   dm03_模型过拟合()
