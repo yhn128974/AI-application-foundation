@@ -5,6 +5,7 @@
     1. 演示逻辑回归的相关操作, 主要是: 二分法(流失, 不流失)
     2. 演示逻辑回归的评估操作, 主要是: 混淆矩阵, 准确率, 召回率, F1值, ROC曲线, AUC值, 分类评估报告(了解)
 """
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -14,11 +15,14 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
     classification_report
 from sklearn.model_selection import train_test_split
 
+# 获取当前脚本所在目录的上级目录中的 data 文件夹，确保在任何工作目录下运行都能准确定位文件
+data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'churn.csv')
+
 
 # 1. 定义函数, 用于实现: 数据预处理.
 def dm01_数据预处理():
     # 1. 读取数据.
-    data = pd.read_csv('./data/churn.csv')
+    data = pd.read_csv(data_path)
     data.info()
 
     # 2. 因为 gender 和 Churn 是二分类字符串变量,需要把他们拆分为二分类
@@ -42,7 +46,7 @@ def dm01_数据预处理():
 # 2. 定义函数, 用于显示: 月度会员的流失情况.
 def dm02_会员流失可视化情况():
     # 1. 读取数据.
-    data = pd.read_csv('./data/churn.csv')
+    data = pd.read_csv(data_path)
     # 2. 对上述的数据做 热编码处理.
     data = pd.get_dummies(data)
     # 3. 删除列, 因为热编码之后, 会多出一个列, 我们删除掉.
@@ -63,7 +67,7 @@ def dm02_会员流失可视化情况():
 # 3. 定义函数, 用于实现: 逻辑回归模型的训练和评估.
 def dm03_逻辑回归模型训练评估():
     # 1. 读取数据.
-    data = pd.read_csv('./data/churn.csv')
+    data = pd.read_csv(data_path)
     # 2. 对上述的数据做 热编码处理.
     data = pd.get_dummies(data)
     # 3. 删除列, 因为热编码之后, 会多出一个列, 我们删除掉.
@@ -118,6 +122,6 @@ def dm03_逻辑回归模型训练评估():
 
 # 4. 在main函数中测试.
 if __name__ == '__main__':
-    # dm01_数据预处理()
-    dm02_会员流失可视化情况()
+    dm01_数据预处理()
+    # dm02_会员流失可视化情况()
     # dm03_逻辑回归模型训练评估()
